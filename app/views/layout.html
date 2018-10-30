@@ -41,6 +41,14 @@
     serviceUrl: "/",
     containerClasses: "govuk-width-container"
   }) }}
+
+  {{ govukPhaseBanner({
+    classes: "govuk-width-container",
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'  
+  }) }}
 {% endblock %}
 
 {% if useAutoStoreData %}

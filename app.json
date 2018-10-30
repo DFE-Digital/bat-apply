@@ -1,21 +1,24 @@
 {
-    "name": "govuk-prototype-kit",
-    "scripts": {},
-    "env": {
-      "USE_AUTH": {
-        "required": true
-      }
-    },
-    "formation": {
-      "web": {
-        "quantity": 1
-      }
-    },
-    "addons": [],
-    "buildpacks": [
-      {
-        "url": "heroku/nodejs"
-      }
-    ]
-  }
-  
+  "name": "Apply for postgraduate teacher training",
+  "description": "Department for Education: Apply for postgraduate teacher training",
+  "repository": "https://github.com/DFE-Digital/sip-alpha-c",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["node", "express", "static"],
+  "scripts": {},
+  "env": {
+    "USE_AUTH": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

@@ -1,0 +1,422 @@
+// govuk_frontend_toolkit
+$stroke-width: 2px;
+$stroke-width-large: 3px;
+$number-circle-size: 26px;
+$number-circle-size-large: 35px;
+$dot-size: 16px;
+$top-border: solid 2px govuk-colour('grey-3');
+$gutter: govuk-spacing(9);
+$gutter-half: govuk-spacing(6);
+$black: govuk-colour('black');
+$white: govuk-colour('white');
+
+@mixin step-nav-vertical-line($line-style: solid) {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  width: 0;
+  height: 100%;
+  border-left: $line-style $stroke-width govuk-colour('grey-2');
+  background: $white;
+}
+
+@mixin step-nav-line-position {
+  left: 0;
+  margin-left: ($number-circle-size / 2) - ($stroke-width / 2);
+}
+
+@mixin step-nav-line-position-large {
+  left: 0;
+  margin-left: ($number-circle-size-large / 2) - ($stroke-width-large / 2);
+  border-width: $stroke-width-large;
+}
+
+.apply-step-nav {
+  margin-bottom: $gutter;
+
+  &.apply-step-nav--large {
+    @include govuk-media-query($from: tablet) {
+      margin-bottom: $gutter * 2;
+    }
+  }
+
+  .js-enabled &.js-hidden {
+    display: none;
+  }
+}
+
+.apply-step-nav__controls {
+  padding: 3px 3px 0 0;
+  text-align: right;
+}
+
+.apply-step-nav__button {
+  color: $govuk-link-colour;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  margin: 0;
+}
+
+// removes extra dotted outline from buttons in Firefox
+// on focus (standard yellow outline unaffected)
+.apply-step-nav__button::-moz-focus-inner {
+  border: 0;
+}
+
+.apply-step-nav__button--title {
+  @extend .govuk-\!-font-size-19;
+  @extend .govuk-\!-font-weight-bold;
+  display: inline-block;
+  padding: 0;
+  text-align: left;
+  color: $black;
+
+  .apply-step-nav--large & {
+    @extend .govuk-\!-font-size-24;
+    @extend .govuk-\!-font-weight-bold;
+  }
+}
+
+.apply-step-nav__button--controls {
+  @extend .govuk-\!-font-size-14;
+  position: relative;
+  z-index: 1; // this and relative position stops focus outline underlap with border of accordion
+  padding: 0.5em 0;
+  text-decoration: underline;
+
+  &:hover {
+    color: $govuk-link-hover-colour;
+  }
+
+  .apply-step-nav--large & {
+    @extend .govuk-\!-font-size-16;
+  }
+}
+
+.apply-step-nav__steps {
+  padding: 0;
+  margin: 0;
+}
+
+.apply-step-nav__step {
+  position: relative;
+  padding-left: $gutter + $gutter-half;
+  list-style: none;
+
+  // line down the side of a step
+  &:after {
+    @include step-nav-vertical-line;
+    @include step-nav-line-position;
+    top: $gutter-half;
+  }
+
+  .apply-step-nav--large & {
+    @include govuk-media-query($from: tablet) {
+      padding-left: $gutter * 2;
+
+      &:after {
+        @include step-nav-line-position-large;
+        top: $gutter;
+      }
+    }
+  }
+}
+
+.apply-step-nav__step:last-child {
+  // little dash at the bottom of the line
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 6;
+    bottom: 0;
+    left: 0;
+    margin-left: $number-circle-size / 4;
+    width: $number-circle-size / 2;
+    height: 0;
+    border-bottom: solid $stroke-width govuk-colour('grey-2');
+  }
+
+  &:after {
+    // scss-lint:disable DuplicateProperty
+    height: -webkit-calc(100% - #{$gutter-half}); // fallback for iphone 4
+    height: calc(100% - #{$gutter-half});
+    // scss-lint:enable DuplicateProperty
+  }
+
+  .apply-step-nav__help:after {
+    height: 100%;
+  }
+
+  .apply-step-nav--large & {
+    @include govuk-media-query($from: tablet) {
+      &:before {
+        margin-left: $number-circle-size-large / 4;
+        width: $number-circle-size-large / 2;
+        border-width: $stroke-width-large;
+      }
+
+      &:after {
+        height: calc(100% - #{$gutter});
+      }
+    }
+  }
+}
+
+.apply-step-nav__step--active {
+  &:last-child:before,
+  .apply-step-nav__circle--number,
+  &:after,
+  .apply-step-nav__help:after {
+    border-color: $black;
+  }
+}
+
+.apply-step-nav__circle {
+  //   @include box-sizing(border-box);
+  position: absolute;
+  z-index: 5;
+  top: $gutter-half;
+  left: 0;
+  width: $number-circle-size;
+  height: $number-circle-size;
+  color: $black;
+  background: $white;
+  border-radius: 100px;
+  text-align: center;
+
+  .apply-step-nav--large & {
+    @include govuk-media-query($from: tablet) {
+      top: $gutter;
+      width: $number-circle-size-large;
+      height: $number-circle-size-large;
+    }
+  }
+}
+
+.apply-step-nav__circle--number {
+  @extend .govuk-\!-font-size-16;
+  @extend .govuk-\!-font-weight-bold;
+  border: solid $stroke-width govuk-colour('grey-2');
+
+  .apply-step-nav--large & {
+    @extend .govuk-\!-font-size-19;
+    @extend .govuk-\!-font-weight-bold;
+
+    @include govuk-media-query($from: tablet) {
+      border-width: $stroke-width-large;
+    }
+  }
+}
+
+.apply-step-nav__circle--logic {
+  @extend .govuk-\!-font-size-16;
+  @extend .govuk-\!-font-weight-bold;
+
+  .apply-step-nav--large & {
+    @extend .govuk-\!-font-size-19;
+    @extend .govuk-\!-font-weight-bold;
+  }
+}
+
+// makes sure logic text expands to the left if text size is zoomed, preventing overlap
+.apply-step-nav__circle-inner {
+  float: right;
+  min-width: 100%;
+}
+
+.apply-step-nav__circle-background {
+  $shadow-offset: 0.1em;
+  $shadow-colour: $white;
+  @extend .govuk-body, 
+    .govuk-\!-font-weight-bold;
+
+  // to make numbers readable for users zooming text only in browsers such as Firefox
+  text-shadow: 0 -#{$shadow-offset} 0 $shadow-colour,
+    $shadow-offset 0 0 $shadow-colour, 0 $shadow-offset 0 $shadow-colour,
+    -#{$shadow-offset} 0 0 $shadow-colour;
+}
+
+.apply-step-nav__circle-step-label,
+.apply-step-nav__circle-step-colon {
+  @include govuk-visually-hidden;
+}
+
+.apply-step-nav__header {
+  padding: $gutter-half 0;
+  border-top: $top-border;
+
+  .apply-step-nav--active & {
+    cursor: pointer;
+  }
+
+  .apply-step-nav__button {
+    @include govuk-focusable;
+  }
+
+  &:hover {
+    .apply-step-nav__button,
+    .apply-step-nav__circle {
+      color: $govuk-link-colour;
+    }
+
+    .apply-step-nav__toggle-link {
+      text-decoration: underline;
+    }
+  }
+
+  .apply-step-nav--large & {
+    @include govuk-media-query($from: tablet) {
+      padding: $gutter 0;
+    }
+  }
+}
+
+.apply-step-nav__title {
+  @include govuk-text-colour;
+  @extend .govuk-\!-font-size-19;
+  @extend .govuk-\!-font-weight-bold;
+  margin: 0;
+
+  .apply-step-nav--large & {
+    @extend .govuk-\!-font-size-24;
+    @extend .govuk-\!-font-weight-bold;
+  }
+}
+
+.apply-step-nav__toggle-link {
+  @extend .govuk-\!-font-size-14;
+  display: block;
+  color: $govuk-link-colour;
+  // core-font-generator sets this to none, so we need to override
+  text-transform: capitalize !important;
+
+  .apply-step-nav--large & {
+    @extend .govuk-\!-font-size-16;
+  }
+}
+
+.apply-step-nav__panel {
+  @include govuk-text-colour;
+  @extend .govuk-\!-font-size-16;
+
+  .apply-step-nav--large & {
+    @extend .govuk-\!-font-size-19;
+  }
+
+  .js-enabled &.js-hidden {
+    display: none;
+  }
+}
+
+// contents of the steps, such as paragraphs and links
+
+.apply-step-nav__paragraph {
+  padding-bottom: $gutter-half;
+  margin: 0;
+  font-size: inherit;
+
+  + .apply-step-nav__list {
+    margin-top: -5px;
+
+    .apply-step-nav--large & {
+      @include govuk-media-query($from: tablet) {
+        margin-top: -$gutter-half;
+      }
+    }
+  }
+
+  .apply-step-nav--large & {
+    @include govuk-media-query($from: tablet) {
+      padding-bottom: $gutter;
+    }
+  }
+}
+
+.apply-step-nav__list {
+  padding: 0;
+  padding-bottom: 10px;
+  list-style: none;
+
+  .apply-step-nav--large & {
+    @include govuk-media-query($from: tablet) {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.apply-step-nav__list--choice {
+  $links-margin: 20px;
+
+  margin-left: $links-margin;
+  list-style: disc;
+
+  .apply-step-nav__list-item--active:before {
+    left: -($gutter + $gutter-half) - $links-margin;
+  }
+
+  .apply-step-nav--large & {
+    @include govuk-media-query($from: tablet) {
+      .apply-step-nav__list-item--active:before {
+        left: -($gutter * 2) - $links-margin;
+      }
+    }
+  }
+}
+
+.apply-step-nav__list-item {
+  margin-bottom: 10px;
+}
+
+.apply-step-nav__link {
+  @include govuk-link-common;
+  @include govuk-link-style-default;
+}
+
+.apply-step-nav__link-active-context {
+  @include govuk-visually-hidden;
+}
+
+.apply-step-nav__list-item--active {
+  position: relative;
+
+  &:before {
+    // @include box-sizing(border-box);
+    content: '';
+    position: absolute;
+    z-index: 5;
+    top: 0.6em; // position the dot to align with the first row of text in the link
+    left: -($gutter + $gutter-half);
+    margin-left: ($number-circle-size / 2) - ($dot-size / 2);
+    width: $dot-size;
+    height: $dot-size;
+    margin-top: -($dot-size / 2);
+    background: $black;
+    border: solid 2px $white;
+    border-radius: 100px;
+  }
+
+  .apply-step-nav--large & {
+    @include govuk-media-query($from: tablet) {
+      &:before {
+        left: -($gutter * 2);
+        margin-left: ($number-circle-size-large / 2) - ($dot-size / 2);
+      }
+    }
+  }
+
+  .apply-step-nav__link {
+    @include govuk-link-style-text;
+    text-decoration: none;
+  }
+}
+
+.apply-step-nav__context {
+  display: inline-block;
+  font-weight: normal;
+  color: govuk-colour('grey-1');
+
+  &:before {
+    content: ' \2013\00a0'; // dash followed by &nbsp;
+  }
+}
