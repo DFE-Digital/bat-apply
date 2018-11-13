@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      {{ serviceName }}
+      <span class="govuk-caption-xl">
+        Use this service to apply for postgraduate teacher training in England.
+      </span>
+    </h1>
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukInsetText({
+        text: "The step-by-step summary tells you what to expect on your journey and gives you the information you need."
+      }) }}
+    <p>You are applying to study:</p>
+    <h3 class="govuk-heading-m">
+      English with Prendergast School
+      <span class="govuk-caption-m">
+        Accredited provider: King's College London (University of London)
+      </span>
+    </h3>
+
+    <div>
+      <dl class="app-check-your-answers app-check-your-answers--short">
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Course offered
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            PGCE with QTS full time
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Financial support
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            Bursary or student finance if you’re eligible
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Qualification
+          </dt>
+          <dd class="app-check-your-answers__answer">
+            {{ govukDetails({
+                summaryText: "PGCE with QTS",
+                text: "A postgraduate certificate in education (PGCE) with qualified teacher status (QTS) allows you to
+                teach in England, Scotland, Wales and Northern Ireland. It’s also recognised internationally."
+              }) }}
+          </dd>
+        </div>
+
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Date you can apply from
+          </dt>
+          <dd class="app-check-your-answers__answer">9 October 2018</dd>
+        </div>
+        <div class="app-check-your-answers__contents">
+          <dt class="app-check-your-answers__question">
+            Date course starts
+          </dt>
+          <dd class="app-check-your-answers__answer">September 2019</dd>
+        </div>
+      </dl>
+    </div>
+    {{ govukButton({
+        text: "Apply"
+      }) }}
+    <h3 class="govuk-heading-l">Before you start</h3>
+    <p>To be eligible for teacher training, you need a:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>UK degree (or international equivalent)</li>
+      <li>GCSE in Maths, grade 4 (previously grade C)</li>
+      <li>GCSE in English, grade 4 (previously grade C)</li>
+
+    </ul>
+
+    <p>To teach at primary school, you also need a minimum grade 4 GCSE in science.<p>
+        <p>You can learn more about eligibility at <a href="https://getintoteaching.education.gov.uk/" class="govuk-link">Get
+            into Teaching.</a></p>
+
+        <h3 class="govuk-heading-m">I don’t have GCSEs in maths and English</h3>
+        <p>You can also be accepted onto a course if you have older qualifications like O levels or international
+          qualifications equivalent to GCSEs.</p>
+
+        {{ govukInsetText({
+            text: "If you don’t have the right GCSE or its equivalent yet, you can still apply. Your training provider can
+            help you get the right qualification in time for your course."
+          }) }}
+
+        <h3 class="govuk-heading-m">I studied for my qualifications outside the UK</h3>
+
+        <p>If you studied for your degree or GCSE equivalents overseas, have you checked your qualifications are
+          recognised in the UK?</p>
+        <p>If not, please visit <a href="https://uknaric.org/">UK NARIC</a> for help validating your qualifications.
+          You’ll need a statement of comparability to show to your training provider.</p>
+
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/journey.html" %}
+  </div>
+</div>
+</div>
+
+{% endblock %}
