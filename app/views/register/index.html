@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+    <span class="govuk-caption-l">
+        {{ serviceName }}
+      </span>
+      Register to apply
+    </h1>
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="register/confirmation" method="post" class="form">
+    
+    {{ govukInsetText({
+        text: "you will need to remember the email address and password to access this service in the future"
+        }) }}
+
+    {% call govukFieldset({
+                    classes : 'govuk-!-width-two-thirds'
+                    }) %}
+                        
+                        {{ govukInput({
+                            label: {
+                                text: "Your email address"
+                            },
+                            id: "register_email",
+                            name: "register_email",
+                            value: data[register_email]
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Choose a password"
+                            },
+                            id: "candidate_password",
+                            name: "candidate_password",
+                            value: data[candidate_password]
+                            }) }}
+
+                        {{ govukDateInput({
+                            id: "dob",
+                            namePrefix: "dob",
+                            fieldset: {
+                                legend: {
+                                text: "What is your date of birth?",
+                                isPageHeading: true,
+                                classes: "govuk-fieldset__legend--m"
+                                }
+                            },
+                            hint: {
+                                text: "For example, 31 3 1980"
+                            }
+                            }) }}
+
+                {% endcall %}
+
+            {{ govukButton({
+                text: "Save and continue"
+                }) }}
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <div class="journey-widget">
+        <h3 class="govuk-heading-s">Relevant guidance here</h3>
+        <p>this information is required to setup your initial account</p>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

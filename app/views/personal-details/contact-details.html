@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "your-application"
+        },
+        {
+          text: "Personal details"
+        },
+        {
+          text: "Contact details"
+        }
+        ]
+    }) }}
+    
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+    <span class="govuk-caption-l">
+        Personal details (step 2 of 2)
+      </span>
+      Contact details
+    </h1>
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/trust-consent" method="post" class="form">
+
+    {% call govukFieldset({
+                    classes : 'govuk-!-width-two-thirds'
+                    }) %}
+
+                        {{ govukInput({
+                            label: {
+                                text: "First name"
+                            },
+                            id: "first_name",
+                            name: "first_name"
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Last name"
+                            },
+                            id: "last_name",
+                            name: "last_name"
+                            }) }}
+                        
+                       
+
+                {% endcall %}
+
+            {{ govukButton({
+                text: "Save and continue"
+                }) }}
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h3 class="govuk-heading-s">Why we need these details</h3>
+    <p class="govuk-body-s">We need these details to ensure your application is complete</p>
+    <h3 class="govuk-heading-s">Guidance and links</h3>
+    <p><a href="guidance">Guidance to support this service </a></p>
+  </div>
+</div>
+</div>
+
+{% endblock %}

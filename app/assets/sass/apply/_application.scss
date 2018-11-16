@@ -1,0 +1,28 @@
+.journey-widget {
+  border-top: 10px solid govuk-colour('blue');
+  padding-top: govuk-spacing(6);
+}
+.apply-notice {
+  @extend .govuk-inset-text,
+    .govuk-\!-padding-bottom-5,
+    .govuk-\!-padding-top-5;
+  background-color: govuk-colour('grey-4');
+  h2 {
+    @extend .govuk-heading-xl;
+  }
+  span {
+    @extend .govuk-body;
+    display: block;
+  }
+}
+.apply-summary-list {
+  @extend .govuk-body-s;
+  dt {
+    color: $govuk-secondary-text-colour;
+    margin: 0;
+  }
+  dd {
+    @extend .govuk-\!-margin-bottom-3;
+    margin-left: 0;
+  }
+}
