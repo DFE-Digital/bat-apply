@@ -20,7 +20,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <form action="register/confirmation" method="post" class="form">
-    
+
     {{ govukInsetText({
         text: "you will need to remember the email address and password to access this service in the future"
         }) }}
@@ -28,7 +28,7 @@
     {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
-                        
+
                         {{ govukInput({
                             label: {
                                 text: "Your email address"

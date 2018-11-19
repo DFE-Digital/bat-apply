@@ -17,7 +17,7 @@
         }
         ]
     }) }}
-    
+
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,7 @@
     <span class="govuk-caption-l">
         Personal details
       </span>
-      Contact details
+      What is your home address?
     </h1>
 
   </div>
@@ -40,9 +40,9 @@
     {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
-                    
 
-        
+
+
                         {{ govukInput({
                             label: {
                                 text: "Building and street"
@@ -58,7 +58,7 @@
                             id: "address_line_2",
                             name: "address_line_2"
                             }) }}
-                        
+
                         {{ govukInput({
                             label: {
                                 text: "Town or city"
@@ -81,7 +81,7 @@
                                 name: "correspondence_address",
                                 fieldset: {
                                     legend: {
-                                    text: "Is your correspondence address different?",
+                                    text: "Would you prefer letters to be sent to a different address?",
                                     isPageHeading: false,
                                     classes: "govuk-fieldset__legend--s"
                                     }
@@ -89,11 +89,11 @@
                                 items: [
                                     {
                                     value: "different_Address",
-                                    text: "Yes, I have a different correspondence address"
+                                    text: "Yes"
                                     }
                                 ]
                                 }) }}
-                            
+
                         {{ govukInput({
                             label: {
                                 text: "Email address"
@@ -107,25 +107,25 @@
 
                         {{ govukInput({
                             label: {
-                                text: "Phone or mobile number"
+                                text: "Mobile phone number"
                             },
                             id: "mobile_number",
                             name: "mobile_number",
                             classes: "govuk-input--width-10"
                             }) }}
-                        
+
                         {{ govukInput({
                             label: {
-                                text: "Alternative phone or landline number"
+                                text: "Alternative phone number"
                             },
                             id: "mobile_number",
                             name: "mobile_number",
                             classes: "govuk-input--width-10"
                             }) }}
-                        
-                        
-                        
-                       
+
+
+
+
 
                 {% endcall %}
 
