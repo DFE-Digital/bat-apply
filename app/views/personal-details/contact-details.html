@@ -40,13 +40,7 @@
     {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
-<<<<<<< HEAD
 
-
-
-=======
-        
->>>>>>> a3fee66f410cc589c24412f95fd1cd73f58bb53a
                         {{ govukInput({
                             label: {
                                 text: "Building and street"
@@ -70,6 +64,15 @@
                             id: "address_line_3",
                             name: "address_line_3"
                             }) }}
+                        
+                        {{ govukInput({
+                            label: {
+                                text: "County"
+                            },
+                            id: "county_or_state",
+                            name: "county_or_state",
+                            classes: "govuk-input--width-10"
+                            }) }}
 
                          {{ govukInput({
                             label: {
@@ -80,23 +83,29 @@
                             classes: "govuk-input--width-5"
                             }) }}
 
-                        {{ govukCheckboxes({
-                                idPrefix: "correspondence_address",
+                        {{ govukRadios({
+                            classes: "govuk-radios",
+                            idPrefix: "correspondence_address",
                                 name: "correspondence_address",
-                                fieldset: {
-                                    legend: {
-                                    text: "Would you prefer letters to be sent to a different address?",
-                                    isPageHeading: false,
-                                    classes: "govuk-fieldset__legend--s"
-                                    }
+                            fieldset: {
+                                legend: {
+                                text: "Would you prefer letters to be sent to a different address?",
+                                isPageHeading: false,
+                                classes: "govuk-fieldset__legend--s"
+                                }
+                            },
+                            items: [
+                                {
+                                value: "yes",
+                                text: "Yes"
                                 },
-                                items: [
-                                    {
-                                    value: "different_Address",
-                                    text: "Yes"
-                                    }
-                                ]
-                                }) }}
+                                {
+                                value: "no",
+                                text: "No",
+                                selected: true
+                                }
+                            ]
+                            }) }}
 
                         {{ govukInput({
                             label: {
@@ -126,11 +135,6 @@
                             name: "mobile_number",
                             classes: "govuk-input--width-10"
                             }) }}
-
-
-
-
-
                 {% endcall %}
 
             {{ govukButton({

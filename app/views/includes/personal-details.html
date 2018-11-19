@@ -46,25 +46,7 @@
                             name: "last_name",
                             value: data["last_name"]
                             }) }}
-                        {{ govukSelect({
-                            id: "gender",
-                            name: "gender",
-                            label: {
-                                text: "Gender"
-                            },
-                            value: data["gender"],
-                            items: [
-                                {
-                                value: "male",
-                                text: "Male"
-                                },
-                                {
-                                value: "female",
-                                text: "Female",
-                                selected: true
-                                }
-                            ]
-                        }) }}
+                        
 
                          {{ govukDateInput({
                             id: "dob",
@@ -97,6 +79,26 @@
                                     }
                                 ]
                             }) }}
+
+                            {{ govukSelect({
+                            id: "gender",
+                            name: "gender",
+                            label: {
+                                text: "Gender"
+                            },
+                            value: data["gender"],
+                            items: [
+                                {
+                                value: "male",
+                                text: "Male"
+                                },
+                                {
+                                value: "female",
+                                text: "Female",
+                                selected: true
+                                }
+                            ]
+                        }) }}
                 
                 
                 {% endcall %}
