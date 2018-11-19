@@ -9,27 +9,30 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
-      <span class="govuk-caption-xl">
-        Use this service to apply for postgraduate teacher training in England.
-      </span>
     </h1>
 
   </div>
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  {{ govukInsetText({
-        html: "If you have used this service before you can <a href='login' class='govuk-link govuk-link--no-visited-state'>Login here</a>"
-      }) }}
-    <p>Before you can apply, you must first register.</p>
-    
+  <p>Use this service to:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>complete your teacher training profile</li>
+    <li>apply to training providers</li>
+    <li>get guidance about the application process</li>
+  </ul>
+
+  <p>To apply for teacher training, you need to create an account.</p>
 
     {{ govukButton({
-        text: "Register now",
+        text: "Create an account",
         href: "/register",
         classes: "govuk-button--start"
       }) }}
 
+      {{ govukInsetText({
+        html: "If you have already created an account. Please <a href='#'>sign in</a>"
+      }) }}
 
     <h3 class="govuk-heading-l">Before you start</h3>
     <p>To be eligible for teacher training, you need a:</p>
