@@ -1,0 +1,41 @@
+{{ govukInput({
+        label: {
+            text: "Building and street"
+        },
+        id: "address_line_1",
+        name: "address_line_1"
+        }) }}
+
+    {{ govukInput({
+        label: {
+            text: "Address line 2"
+        },
+        id: "address_line_2",
+        name: "address_line_2"
+        }) }}
+
+    {{ govukInput({
+        label: {
+            text: "Town or city"
+        },
+        id: "address_line_3",
+        name: "address_line_3"
+        }) }}
+    
+    {{ govukInput({
+        label: {
+            text: "County"
+        },
+        id: "county_or_state",
+        name: "county_or_state",
+        classes: "govuk-input--width-10"
+        }) }}
+
+    {{ govukInput({
+        label: {
+            text: "Postcode"
+        },
+        id: "postcode",
+        name: "postcode",
+        classes: "govuk-input--width-5"
+        }) }}
