@@ -19,14 +19,14 @@
                             name: "last_name",
                             value: data["last_name"]
                             }) }}
-                        
+
 
                          {{ govukDateInput({
                             id: "dob",
                             namePrefix: "dob",
                             fieldset: {
                                 legend: {
-                                text: "What is your date of birth?",
+                                text: "Date of birth",
                                 isPageHeading: true,
                                 classes: "govuk-fieldset__legend--m"
                                 }
@@ -84,7 +84,7 @@
                                 }
                             ]
                             }) }}
-                            
+
                             {{ govukSelect({
                             id: "gender",
                             name: "gender",
@@ -104,6 +104,6 @@
                                 }
                             ]
                         }) }}
-                
-                
+
+
                 {% endcall %}
