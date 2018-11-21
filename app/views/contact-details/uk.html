@@ -13,7 +13,11 @@
           href: "/your-application"
         },
         {
-          text: "Contact details"
+          text: "Contact details",
+          href: "/contact-details"
+        },
+        {
+          text: "UK"
         }
         ]
     }) }}
@@ -34,7 +38,7 @@
     <span class="govuk-caption-l">
         Contact details
       </span>
-      What is your home address?
+      What is your home address (UK)?
     </h1>
 
   </div>
@@ -50,7 +54,7 @@
                         
                          {{ govukInput({
                                 label: {
-                                    text: "Building and street"
+                                    html: "Building and street <span class='govuk-visually-hidden'>line 1 of 2</span>"
                                 },
                                 id: "address_line_1",
                                 name: "address_line_1"
@@ -58,7 +62,7 @@
 
                         {{ govukInput({
                             label: {
-                                text: "Address line 2"
+                                html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
                             },
                             id: "address_line_2",
                             name: "address_line_2"
@@ -76,8 +80,8 @@
                             label: {
                                 text: "County"
                             },
-                            id: "county_or_state",
-                            name: "county_or_state",
+                            id: "address_line_4",
+                            name: "address_line_4",
                             classes: "govuk-input--width-10"
                             }) }}
 
