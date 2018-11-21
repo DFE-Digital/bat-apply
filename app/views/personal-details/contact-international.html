@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "/your-application"
+        },
+        {
+          text: "Contact details"
+        }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% set addressFields %}
+
+    {% include "includes/address-fields.html" %}
+
+{% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+    <span class="govuk-caption-l">
+        Contact details
+      </span>
+      What is your home address?
+    </h1>
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="correspondence-details" method="post" class="form">
+
+    {% call govukFieldset({
+                    classes : 'govuk-!-width-two-thirds'
+                    }) %}
+                        
+                         {{ govukInput({
+                                label: {
+                                    text: "Building and street"
+                                },
+                                id: "address_line_1",
+                                name: "address_line_1"
+                                }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Address line 2"
+                            },
+                            id: "address_line_2",
+                            name: "address_line_2"
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Town or city"
+                            },
+                            id: "address_line_3",
+                            name: "address_line_3"
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "County"
+                            },
+                            id: "county_or_state",
+                            name: "county_or_state",
+                            classes: "govuk-input--width-10"
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Postcode"
+                            },
+                            id: "postcode",
+                            name: "postcode",
+                            classes: "govuk-input--width-5"
+                            }) }}
+
+                        {% include "../includes/countries-select.html" %}
+
+                        {{ govukRadios({
+                            classes: "govuk-radios--inline",
+                            idPrefix: "correspondence_address",
+                            name: "correspondence_address",
+                            fieldset: {
+                                legend: {
+                                text: "Would you prefer letters to be sent to a different address?",
+                                isPageHeading: false,
+                                classes: "govuk-fieldset__legend--s"
+                                }
+                            },
+                            items: [
+                                {
+                                    value: "yes",
+                                    text: "Yes",
+                                    checked: checked('correspondence_address', 'yes')
+                                },
+                                {
+                                    value: "no",
+                                    text: "No",
+                                    selected: true
+                                }
+                            ]
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Email address"
+                            },
+                            hint : {
+                                text: "Enter the email address you'd like to be used to contact you"
+                            },
+                            id: "contact_email_address",
+                            name: "contact_email_address"
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Mobile phone number"
+                            },
+                            id: "contact_mobile_number",
+                            name: "contact_mobile_number",
+                            classes: "govuk-input--width-10"
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Alternative phone number"
+                            },
+                            id: "mobile_number",
+                            name: "mobile_number",
+                            classes: "govuk-input--width-10"
+                            }) }}
+                {% endcall %}
+
+            {{ govukButton({
+                text: "Save and continue"
+                }) }}
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h3 class="govuk-heading-s">Guidance and links</h3>
+    <p><a href="guidance">Guidance to support this service </a></p>
+  </div>
+</div>
+</div>
+
+{% endblock %}
