@@ -42,7 +42,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="correspondence-details" method="post" class="form">
+    <form action="correspondence" method="post" class="form">
 
     {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
@@ -74,7 +74,7 @@
 
                         {{ govukInput({
                             label: {
-                                text: "County"
+                                text: "County or state"
                             },
                             id: "county_or_state",
                             name: "county_or_state",
@@ -83,7 +83,7 @@
 
                         {{ govukInput({
                             label: {
-                                text: "Postcode"
+                                text: "Postcode or Zip"
                             },
                             id: "postcode",
                             name: "postcode",

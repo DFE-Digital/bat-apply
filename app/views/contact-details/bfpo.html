@@ -42,7 +42,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="correspondence-details" method="post" class="form">
+    <form action="correspondence" method="post" class="form">
 
     {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
@@ -50,15 +50,18 @@
                         
                          {{ govukInput({
                                 label: {
-                                    text: "Building and street"
+                                    text: "Unit/ Regiment"
                                 },
                                 id: "address_line_1",
                                 name: "address_line_1"
                                 }) }}
 
                         {{ govukInput({
-                            label: {
-                                text: "Address line 2"
+                            label : {
+                                text: "Operation name"
+                            },
+                            hint : {
+                                text: "if applicable"
                             },
                             id: "address_line_2",
                             name: "address_line_2"
@@ -74,7 +77,7 @@
 
                         {{ govukInput({
                             label: {
-                                text: "County"
+                                text: "County or state"
                             },
                             id: "county_or_state",
                             name: "county_or_state",
@@ -83,13 +86,13 @@
 
                         {{ govukInput({
                             label: {
-                                text: "Postcode"
+                                text: "Postcode or Zip"
                             },
                             id: "postcode",
                             name: "postcode",
                             classes: "govuk-input--width-5"
                             }) }}
-
+                        
                         {% include "../includes/countries-select.html" %}
 
                         {{ govukRadios({

@@ -1,6 +1,13 @@
 const contactDetailsRouter = (req, res) => {
-    let template = `dashboard`;
-    res.render( template , req.params);
+    const page = req.session.data['where-do-you-live'];
+    
+    if (page === 'uk') {
+        res.redirect('/contact-details/uk')
+      } else if (page === 'international') {
+        res.redirect('/contact-details/international')
+      } else {
+        res.redirect('/contact-details/bfpo')
+      }
   };
   
-  module.exports = contactDetailsRouter;
+module.exports = contactDetailsRouter;
