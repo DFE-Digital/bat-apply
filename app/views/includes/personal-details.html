@@ -1,4 +1,6 @@
-
+{% call govukFieldset({
+                    classes : 'govuk-!-width-two-thirds'
+                    }) %}
 
                         {{ govukInput({
                             label: {
@@ -29,7 +31,9 @@
                                 classes: "govuk-fieldset__legend--m"
                                 }
                             },
-
+                            hint: {
+                                text: "For example, 31 3 1980"
+                            },
                             items: [
                                     {
                                         name: "day",
@@ -100,3 +104,6 @@
                                 }
                             ]
                         }) }}
+
+
+                {% endcall %}
