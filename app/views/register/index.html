@@ -68,11 +68,59 @@ Untitled
         {% endcall %}
 ​
         {% call govukFieldset({
-          classes : 'govuk-!-width-two-thirds'
-          }) %}
-​
-          {% include "../includes/personal-details.html" %}
-        {% endcall %}
+                    classes : 'govuk-!-width-two-thirds'
+                    }) %}
+
+                        {{ govukInput({
+                            label: {
+                                text: "First names"
+                            },
+                            id: "first_name",
+                            name: "first_name",
+                            value: data["first_name"]
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Surname"
+                            },
+                            id: "last_name",
+                            name: "last_name",
+                            value: data["last_name"]
+                            }) }}
+
+                         {{ govukDateInput({
+                            id: "dob",
+                            namePrefix: "dob",
+                            fieldset: {
+                                legend: {
+                                text: "Date of birth",
+                                isPageHeading: true,
+                                classes: "govuk-fieldset__legend--m"
+                                }
+                            },
+                            hint: {
+                                text: "For example, 31 3 1980"
+                            },
+                            items: [
+                                    {
+                                        name: "day",
+                                        value: data['dob-day'],
+                                        classes: "govuk-input--width-2"
+                                    },
+                                    {
+                                        name: "month",
+                                        value: data['dob-month'],
+                                        classes: "govuk-input--width-2"
+                                    },
+                                    {
+                                        name: "year",
+                                        value: data['dob-year'],
+                                        classes: "govuk-input--width-4"
+                                    }
+                                ]
+                            }) }}
+            {% endcall %}
 ​
       {{ govukButton({
         text: "Create an account"
