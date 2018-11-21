@@ -31,12 +31,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-        <span class="govuk-caption-l">
-            Personal details
-        </span>
-        What is your home address?
+    <span class="govuk-caption-l">
+        Contact details
+      </span>
+      What is your address?
     </h1>
-
   </div>
 </div>
 <div class="govuk-grid-row">
@@ -44,69 +43,27 @@
 
     <form action="correspondence-details" method="post" class="form">
 
-    {% call govukFieldset({
-                    classes : 'govuk-!-width-two-thirds'
-                    }) %}
-                        
-                         {% include "includes/address-fields.html" %}
-
-                        {{ govukRadios({
-                            classes: "govuk-radios",
-                            idPrefix: "correspondence_address",
-                            name: "correspondence_address",
-                            fieldset: {
-                                legend: {
-                                text: "Would you prefer letters to be sent to a different address?",
-                                isPageHeading: false,
-                                classes: "govuk-fieldset__legend--s"
-                                }
-                            },
-                            items: [
-                                {
-                                value: "yes",
-                                text: "Yes",
-                                checked: checked('correspondence_address', 'yes'),
-                                conditional : {
-                                    html : addressFields
-                                }
-                                },
-                                {
-                                value: "no",
-                                text: "No",
-                                selected: true
-                                }
-                            ]
-                            }) }}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Email address"
-                            },
-                            hint : {
-                                text: "Enter the email address you'd like to be used to contact you"
-                            },
-                            id: "mobile_number",
-                            name: "mobile_number"
-                            }) }}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Mobile phone number"
-                            },
-                            id: "mobile_number",
-                            name: "mobile_number",
-                            classes: "govuk-input--width-10"
-                            }) }}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Alternative phone number"
-                            },
-                            id: "mobile_number",
-                            name: "mobile_number",
-                            classes: "govuk-input--width-10"
-                            }) }}
-                {% endcall %}
+            {{ govukRadios({
+                idPrefix: "where-do-you-live",
+                name: "where-do-you-live",
+                items: [
+                    {
+                    value: "uk",
+                    text: "UK"
+                    },
+                    {
+                    value: "international",
+                    text: "Non-UK/international"
+                    },
+                    {
+                    value: "bfpo",
+                    text: "BFPO",
+                    hint: {
+                        text: "I have a British Forces Post Office address"
+                    }
+                    }
+                ]
+                }) }}
 
             {{ govukButton({
                 text: "Save and continue"
