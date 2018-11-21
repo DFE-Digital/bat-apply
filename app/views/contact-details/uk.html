@@ -52,102 +52,105 @@
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
                         
-                         {{ govukInput({
-                                label: {
-                                    html: "Building and street <span class='govuk-visually-hidden'>line 1 of 2</span>"
-                                },
-                                id: "address_line_1",
-                                name: "address_line_1"
-                                }) }}
+        {{ govukInput({
+                label: {
+                    html: "Building and street <span class='govuk-visually-hidden'>line 1 of 2</span>"
+                },
+                id: "address_line_1",
+                name: "address_line_1"
+                }) }}
 
-                        {{ govukInput({
-                            label: {
-                                html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
-                            },
-                            id: "address_line_2",
-                            name: "address_line_2"
-                            }) }}
+        {{ govukInput({
+            label: {
+                html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+            },
+            id: "address_line_2",
+            name: "address_line_2"
+            }) }}
 
-                        {{ govukInput({
-                            label: {
-                                text: "Town or city"
-                            },
-                            id: "address_line_3",
-                            name: "address_line_3"
-                            }) }}
+        {{ govukInput({
+            label: {
+                text: "Town or city"
+            },
+            id: "address_line_3",
+            name: "address_line_3"
+            }) }}
 
-                        {{ govukInput({
-                            label: {
-                                text: "County"
-                            },
-                            id: "address_line_4",
-                            name: "address_line_4",
-                            classes: "govuk-input--width-10"
-                            }) }}
+        {{ govukInput({
+            label: {
+                text: "County"
+            },
+            id: "address_line_4",
+            name: "address_line_4",
+            classes: "govuk-input--width-10"
+            }) }}
 
-                        {{ govukInput({
-                            label: {
-                                text: "Postcode"
-                            },
-                            id: "postcode",
-                            name: "postcode",
-                            classes: "govuk-input--width-5"
-                            }) }}
+        {{ govukInput({
+            label: {
+                text: "Postcode"
+            },
+            id: "postcode",
+            name: "postcode",
+            classes: "govuk-input--width-5"
+            }) }}
 
-                        {{ govukRadios({
-                            classes: "govuk-radios--inline",
-                            idPrefix: "correspondence_address",
-                            name: "correspondence_address",
-                            fieldset: {
-                                legend: {
-                                text: "Would you prefer letters to be sent to a different address?",
-                                isPageHeading: false,
-                                classes: "govuk-fieldset__legend--s"
-                                }
-                            },
-                            items: [
-                                {
-                                    value: "yes",
-                                    text: "Yes",
-                                    checked: checked('correspondence_address', 'yes')
-                                },
-                                {
-                                    value: "no",
-                                    text: "No",
-                                    selected: true
-                                }
-                            ]
-                            }) }}
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "correspondence_address",
+            name: "correspondence_address",
+            fieldset: {
+                legend: {
+                text: "Would you prefer letters to be sent to a different address?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+                }
+            },
+            items: [
+                {
+                    value: "yes",
+                    text: "Yes",
+                    checked: checked('correspondence_address', 'yes')
+                },
+                {
+                    value: "no",
+                    text: "No",
+                    selected: true
+                }
+            ]
+            }) }}
+        
+        {% include "includes/residency-status.html" %}
 
-                        {{ govukInput({
-                            label: {
-                                text: "Email address"
-                            },
-                            hint : {
-                                text: "Enter the email address you'd like to be used to contact you"
-                            },
-                            id: "contact_email_address",
-                            name: "contact_email_address"
-                            }) }}
+        {{ govukInput({
+            label: {
+                text: "Email address"
+            },
+            hint : {
+                text: "Enter the email address you'd like to be used to contact you"
+            },
+            id: "contact_email_address",
+            name: "contact_email_address"
+            }) }}
 
-                        {{ govukInput({
-                            label: {
-                                text: "Mobile phone number"
-                            },
-                            id: "contact_mobile_number",
-                            name: "contact_mobile_number",
-                            classes: "govuk-input--width-10"
-                            }) }}
+        {{ govukInput({
+            label: {
+                text: "Mobile phone number"
+            },
+            id: "contact_mobile_number",
+            name: "contact_mobile_number",
+            classes: "govuk-input--width-10"
+            }) }}
 
-                        {{ govukInput({
-                            label: {
-                                text: "Alternative phone number"
-                            },
-                            id: "mobile_number",
-                            name: "mobile_number",
-                            classes: "govuk-input--width-10"
-                            }) }}
-                {% endcall %}
+        {{ govukInput({
+            label: {
+                text: "Alternative phone number"
+            },
+            id: "mobile_number",
+            name: "mobile_number",
+            classes: "govuk-input--width-10"
+            }) }}
+                
+    {% endcall %}
 
             {{ govukButton({
                 text: "Save and continue"

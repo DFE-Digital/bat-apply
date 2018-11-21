@@ -1,0 +1,100 @@
+{% set boroughFormContent %}
+
+    {% include "includes/uk-borough-fields.html" %}
+
+{% endset %}
+
+{% set permanentResidenceContent %}
+
+    {{ govukSelect({
+        id: "sort",
+        name: "sort",
+        label: {
+            text: "Sort by"
+        },
+        items: [
+            {
+            value: "uk-england",
+            text: "UK Citizen - England"
+            },
+            {
+            value: "uk-scotland",
+            text: "UK Citizen - Scotland"
+            },
+            {
+            value: "uk-wales",
+            text: "UK Citizen - Wales"
+            },
+            {
+            value: "uk-northern-ireland",
+            text: "UK Citizen - Northern Ireland"
+            },
+            {
+            value: "british-channel-islands",
+            text: "British Citizen - Channel Islands and Isle of Man"
+            },
+            {
+            value: "british-overseas-territories",
+            text: "British Citizen - British Overseas Territories"
+            },
+            {
+            value: "eu-national",
+            text: "EU National (non-UK Citizen)"
+            },
+            {
+            value: "eea-swiss",
+            text: "EEA or Swiss National"
+            },
+            {
+            value: "child-turkish-worker",
+            text: "Child of a Turkish Worker"
+            },
+            {
+            value: "refugee",
+            text: "Refugee"
+            },
+            {
+            value: "humanitarian",
+            text: "Humanitarian Protection or similar"
+            },
+            {
+            value: "settled",
+            text: "Settled in the UK"
+            },
+            {
+            value: "other",
+            text: "Other"
+            }
+        ]
+        }) }}
+
+{% endset %}
+
+{{ govukRadios({
+    classes: "govuk-radios govuk-!-width-two-thirds",
+    idPrefix: "permanent-residence",
+    name: "permanent-residence",
+    fieldset: {
+        legend: {
+        text: "Is your permanent home in the UK?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--m"
+        }
+    },
+    items: [
+        {
+            value: "yes",
+            text: "Yes",
+            conditional : {
+                html : boroughFormContent
+            }
+        },
+        {
+            value: "no",
+            text: "No",
+            conditional : {
+                html : permanentResidenceContent
+            }
+        }
+    ]
+    }) }}

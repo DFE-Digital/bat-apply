@@ -84,167 +84,166 @@
                     }) %}
                       
                       
-{{ govukInput({
-    label: {
-        text: "First names"
-    },
-    id: "first_name",
-    name: "first_name",
-    value: data["first_name"]
-    }) }}
+                    {{ govukInput({
+                        label: {
+                            text: "First names"
+                        },
+                        id: "first_name",
+                        name: "first_name",
+                        value: data["first_name"]
+                        }) }}
 
-{{ govukInput({
-    label: {
-        text: "Surname"
-    },
-    id: "last_name",
-    name: "last_name",
-    value: data["last_name"]
-    }) }}
+                    {{ govukInput({
+                        label: {
+                            text: "Surname"
+                        },
+                        id: "last_name",
+                        name: "last_name",
+                        value: data["last_name"]
+                        }) }}
 
 
-    {{ govukSelect({
-                            id: "title",
-                            name: "title",
-                            label: {
-                                text: "Title"
+              {{ govukSelect({
+                    id: "title",
+                    name: "title",
+                    label: {
+                        text: "Title"
+                    },
+                    value: data["title"],
+                    items: [
+                        {
+                        value: "Mr",
+                        text: "Mr"
+                        },
+                        {
+                        value: "Mrs",
+                        text: "Mrs",
+                        selected: true
+                        },
+                        {
+                        value: "Miss",
+                        text: "Miss"
+                        },
+                        {
+                        value: "Ms",
+                        text: "Ms"
+                        },
+                        {
+                        value: "Mx",
+                        text: "Mx"
+                        }
+                    ]
+              }) }}
+
+
+                {{ govukSelect({
+                      id: "gender",
+                      name: "gender",
+                      label: {
+                          text: "Gender"
+                      },
+                      value: data["gender"],
+                      items: [
+                          {
+                          value: "male",
+                          text: "Male"
+                          },
+                          {
+                          value: "female",
+                          text: "Female",
+                          selected: true
+                          }
+                      ]
+                  }) }}
+                  
+                  {{ govukDateInput({
+                    id: "dob",
+                    namePrefix: "dob",
+                    fieldset: {
+                        legend: {
+                        text: "Date of birth",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--m"
+                        }
+                    },
+                    hint: {
+                        text: "For example, 31 3 1980"
+                    },
+                    items: [
+                            {
+                                name: "day",
+                                value: data['dob-day'],
+                                classes: "govuk-input--width-2"
                             },
-                            value: data["title"],
-                            items: [
-                                {
-                                value: "Mr",
-                                text: "Mr"
-                                },
-                                {
-                                value: "Mrs",
-                                text: "Mrs",
-                                selected: true
-                                },
-                                {
-                                value: "Miss",
-                                text: "Miss"
-                                },
-                                {
-                                value: "Ms",
-                                text: "Ms"
-                                },
-                                {
-                                value: "Mx",
-                                text: "Mx"
-                                }
-                            ]
-                            }) }}
-
-
-                      
-
-                        {{ govukSelect({
-                              id: "gender",
-                              name: "gender",
-                              label: {
-                                  text: "Gender"
-                              },
-                              value: data["gender"],
-                              items: [
-                                  {
-                                  value: "male",
-                                  text: "Male"
-                                  },
-                                  {
-                                  value: "female",
-                                  text: "Female",
-                                  selected: true
-                                  }
-                              ]
-                          }) }}
-                          {{ govukDateInput({
-    id: "dob",
-    namePrefix: "dob",
-    fieldset: {
-        legend: {
-        text: "Date of birth",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--m"
-        }
-    },
-    hint: {
-        text: "For example, 31 3 1980"
-    },
-    items: [
-            {
-                name: "day",
-                value: data['dob-day'],
-                classes: "govuk-input--width-2"
-            },
-            {
-                name: "month",
-                value: data['dob-month'],
-                classes: "govuk-input--width-2"
-            },
-            {
-                name: "year",
-                value: data['dob-year'],
-                classes: "govuk-input--width-4"
-            }
-        ]
-    }) }}
+                            {
+                                name: "month",
+                                value: data['dob-month'],
+                                classes: "govuk-input--width-2"
+                            },
+                            {
+                                name: "year",
+                                value: data['dob-year'],
+                                classes: "govuk-input--width-4"
+                            }
+                        ]
+                    }) }}
   
-  {% endcall %}
+            {% endcall %}
                         
-               {% call govukFieldset({
-  legend: {
-    text: "Nationality and country of birth",
-    classes: "govuk-fieldset__legend--m",
-    isPageHeading: true
-  }
-}) %}         
+            {% call govukFieldset({
+                legend: {
+                  text: "Nationality and country of birth",
+                  classes: "govuk-fieldset__legend--m",
+                  isPageHeading: true
+                }
+              }) %}         
                         
-                        {{ govukInput({
-                            label: {
-                                text: "What is your nationality?"
-                            },
-                            hint : {
-                              text : "Your nationality appears in your passport"
-                            },
-                            id: "nationality",
-                            name: "nationality",
-                            value: data["nationality"],
-                            classes: "govuk-input--width-10"
-                          }) }}
+                  {{ govukInput({
+                      label: {
+                          text: "What is your nationality?"
+                      },
+                      hint : {
+                        text : "Your nationality appears in your passport"
+                      },
+                      id: "nationality",
+                      name: "nationality",
+                      value: data["nationality"],
+                      classes: "govuk-input--width-10"
+                    }) }}
 
-                          {{ govukRadios({
-                              classes: "govuk-radios",
-                              idPrefix: "changed-name",
-                              name: "changed-name",
-                              fieldset: {
-                                legend: {
-                                  text: "What is your country of birth?",
-                                  isPageHeading: false,
-                                  classes: "govuk-fieldset__legend--s"
-                                }
-                              },
-                              items: [
-                                {
-                                  value: "yes",
-                                  text: "UK"
-                                },
-                                {
-                                  value: "no",
-                                  text: "Non UK country",
-                                  conditional : {
-                                    html : enterUKdate
-                                  }
-                                }
-                              ]
-                            }) }}
+                    {{ govukRadios({
+                        classes: "govuk-radios",
+                        idPrefix: "changed-name",
+                        name: "changed-name",
+                        fieldset: {
+                          legend: {
+                            text: "What is your country of birth?",
+                            isPageHeading: false,
+                            classes: "govuk-fieldset__legend--s"
+                          }
+                        },
+                        items: [
+                          {
+                            value: "yes",
+                            text: "UK"
+                          },
+                          {
+                            value: "no",
+                            text: "Non UK country",
+                            conditional : {
+                              html : enterUKdate
+                            }
+                          }
+                        ]
+                      }) }}
 
 
-                {% endcall %}
+              {% endcall %}
             
 
-            {{ govukButton({
-                text: "Save and continue"
-                }) }}
+              {{ govukButton({
+                  text: "Save and continue"
+                  }) }}
     </form>
   </div>
   <div class="govuk-grid-column-one-third">

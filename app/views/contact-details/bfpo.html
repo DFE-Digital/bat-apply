@@ -100,7 +100,7 @@
                                 legend: {
                                 text: "Would you prefer letters to be sent to a different address?",
                                 isPageHeading: false,
-                                classes: "govuk-fieldset__legend--s"
+                                classes: "govuk-fieldset__legend--m"
                                 }
                             },
                             items: [
@@ -116,6 +116,8 @@
                                 }
                             ]
                             }) }}
+
+                            {% include "includes/residency-status.html" %}
 
                         {{ govukInput({
                             label: {
