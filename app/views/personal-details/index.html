@@ -24,6 +24,41 @@
 {% endblock %}
 
 {% block content %}
+
+{% set enterUKdate %}
+  {{ govukDateInput({
+    id: "date_enter_uk",
+    namePrefix: "date_enter_uk",
+    fieldset: {
+        legend: {
+        text: "What date did you enter the UK?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--s"
+        }
+    },
+    hint: {
+        text: "For example, 31 3 1980"
+    },
+    items: [
+            {
+                name: "day",
+                value: data['dob-day'],
+                classes: "govuk-input--width-2"
+            },
+            {
+                name: "month",
+                value: data['dob-month'],
+                classes: "govuk-input--width-2"
+            },
+            {
+                name: "year",
+                value: data['dob-year'],
+                classes: "govuk-input--width-4"
+            }
+        ]
+    }) }}
+{% endset %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
@@ -39,14 +74,36 @@
   <div class="govuk-grid-column-two-thirds">
 
     <form action="/contact-details" method="post" class="form">
+
+    {{ govukInsetText({
+      text: "You can update your details if they are incorrect"
+    }) }}
     
             {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
+                      
+                      
+{{ govukInput({
+    label: {
+        text: "First names"
+    },
+    id: "first_name",
+    name: "first_name",
+    value: data["first_name"]
+    }) }}
 
-                      {% include "../includes/personal-details.html" %}
+{{ govukInput({
+    label: {
+        text: "Surname"
+    },
+    id: "last_name",
+    name: "last_name",
+    value: data["last_name"]
+    }) }}
 
-                      {{ govukSelect({
+
+    {{ govukSelect({
                             id: "title",
                             name: "title",
                             label: {
@@ -78,6 +135,9 @@
                             ]
                             }) }}
 
+
+                      
+
                         {{ govukSelect({
                               id: "gender",
                               name: "gender",
@@ -97,22 +157,54 @@
                                   }
                               ]
                           }) }}
-
-                        {% call govukFieldset({
-                            legend: {
-                              text: "Country of birth",
-                              classes: "govuk-fieldset__legend--s",
-                              isPageHeading: false
-                            }
-                          }) %}
+                          {{ govukDateInput({
+    id: "dob",
+    namePrefix: "dob",
+    fieldset: {
+        legend: {
+        text: "Date of birth",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--m"
+        }
+    },
+    hint: {
+        text: "For example, 31 3 1980"
+    },
+    items: [
+            {
+                name: "day",
+                value: data['dob-day'],
+                classes: "govuk-input--width-2"
+            },
+            {
+                name: "month",
+                value: data['dob-month'],
+                classes: "govuk-input--width-2"
+            },
+            {
+                name: "year",
+                value: data['dob-year'],
+                classes: "govuk-input--width-4"
+            }
+        ]
+    }) }}
+  
+  {% endcall %}
                         
-                           {% include "../includes/countries-select.html" %}
-
-                         {% endcall %}
-
+               {% call govukFieldset({
+  legend: {
+    text: "Nationality and country of birth",
+    classes: "govuk-fieldset__legend--m",
+    isPageHeading: true
+  }
+}) %}         
+                        
                         {{ govukInput({
                             label: {
-                                text: "Nationality"
+                                text: "What is your nationality?"
+                            },
+                            hint : {
+                              text : "Your nationality appears in your passport"
                             },
                             id: "nationality",
                             name: "nationality",
@@ -120,7 +212,31 @@
                             classes: "govuk-input--width-10"
                           }) }}
 
-                          
+                          {{ govukRadios({
+                              classes: "govuk-radios",
+                              idPrefix: "changed-name",
+                              name: "changed-name",
+                              fieldset: {
+                                legend: {
+                                  text: "What is your country of birth?",
+                                  isPageHeading: false,
+                                  classes: "govuk-fieldset__legend--s"
+                                }
+                              },
+                              items: [
+                                {
+                                  value: "yes",
+                                  text: "UK"
+                                },
+                                {
+                                  value: "no",
+                                  text: "Non UK country",
+                                  conditional : {
+                                    html : enterUKdate
+                                  }
+                                }
+                              ]
+                            }) }}
 
 
                 {% endcall %}
