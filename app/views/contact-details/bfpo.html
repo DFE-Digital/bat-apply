@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "/your-application"
+        },
+        {
+          text: "Contact details",
+          href: "/contact-details"
+        },
+        {
+          text: "BFPO"
+        }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% set addressFields %}
+
+    {% include "includes/address-fields.html" %}
+
+{% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+    <span class="govuk-caption-l">
+        Contact details
+      </span>
+      What is your home address (bfpo)?
+    </h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="correspondence" method="post" class="form">
+
+    {% call govukFieldset({
+                    classes : 'govuk-!-width-two-thirds'
+                    }) %}
+                        
+                         {{ govukInput({
+                                label: {
+                                    text: "Service No. Rank name"
+                                },
+                                id: "address_line_1",
+                                name: "address_line_1"
+                                }) }}
+
+                        {{ govukInput({
+                            label : {
+                                text: "Unit regiments"
+                            },
+                            id: "address_line_2",
+                            name: "address_line_2"
+                            }) }}
+
+                        {{ govukInput({
+                             label : {
+                                text: "Operation name"
+                            },
+                            hint : {
+                                text: "if applicable"
+                            },
+                            id: "address_line_3",
+                            name: "address_line_3"
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "BFPO No."
+                            },
+                            hint : {
+                                text: "You must enter 'BFPO' before the number. For example, BFPO 1111"
+                            },
+                            id: "address_line_4",
+                            name: "address_line_4",
+                            classes: "govuk-input--width-10"
+                            }) }}
+                        
+                        {% include "../includes/countries-select.html" %}
+
+                        {{ govukRadios({
+                            classes: "govuk-radios--inline",
+                            idPrefix: "correspondence_address",
+                            name: "correspondence_address",
+                            fieldset: {
+                                legend: {
+                                text: "Would you prefer letters to be sent to a different address?",
+                                isPageHeading: false,
+                                classes: "govuk-fieldset__legend--s"
+                                }
+                            },
+                            items: [
+                                {
+                                    value: "yes",
+                                    text: "Yes",
+                                    checked: checked('correspondence_address', 'yes')
+                                },
+                                {
+                                    value: "no",
+                                    text: "No",
+                                    selected: true
+                                }
+                            ]
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Email address"
+                            },
+                            hint : {
+                                text: "Enter the email address you'd like to be used to contact you"
+                            },
+                            id: "contact_email_address",
+                            name: "contact_email_address"
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Mobile phone number"
+                            },
+                            id: "contact_mobile_number",
+                            name: "contact_mobile_number",
+                            classes: "govuk-input--width-10"
+                            }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Alternative phone number"
+                            },
+                            id: "mobile_number",
+                            name: "mobile_number",
+                            classes: "govuk-input--width-10"
+                            }) }}
+                {% endcall %}
+
+            {{ govukButton({
+                text: "Save and continue"
+                }) }}
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h3 class="govuk-heading-s">Guidance and links</h3>
+    <p><a href="guidance">Guidance to support this service </a></p>
+  </div>
+</div>
+</div>
+
+{% endblock %}

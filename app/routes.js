@@ -2,11 +2,13 @@ const express = require("express");
 const router = express.Router();
 // -------------------------------------------------------------- BAT Apply routes
 const registerRouter = require("./routes/register.js");
+const contactDetailsRouter = require("./routes/contact-details.js");
 const dashboardRouter = require("./routes/dashboard.js");
 const personalDetailsRouter = require("./routes/personal-details.js");
-// -------------------------------------------------------------- homepage router
+// -------------------------------------------------------------- routes
 router.get("/your-application", dashboardRouter);
 router.get("/register/:step", registerRouter);
 router.get("/personal-details/:step", personalDetailsRouter);
+router.get("/contact-details/main/:step?", contactDetailsRouter);
 // -------------------------------------------------------------- export
 module.exports = router;
