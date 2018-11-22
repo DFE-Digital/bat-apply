@@ -26,6 +26,9 @@
 {% block content %}
 
 {% set enterUKdate %}
+
+    {% include "../includes/countries-select.html" %}
+
   {{ govukDateInput({
     id: "date_enter_uk",
     namePrefix: "date_enter_uk",
@@ -57,6 +60,8 @@
             }
         ]
     }) }}
+
+
 {% endset %}
 
 <div class="govuk-grid-row">
