@@ -43,13 +43,10 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="contact-details/correspondence" method="post" class="form">
-          <pre>
-          {{ data | dump(2) }}
-          </pre>
+    <form action="/contact-details/correspondence" method="post" class="form">
             {{ govukRadios({
-                idPrefix: "where-do-you-live",
-                name: "where-do-you-live",
+                idPrefix: "correspondence-where-do-you-live",
+                name: "correspondence-where-do-you-live",
                 items: [
                     {
                     value: "correspondence_uk",
