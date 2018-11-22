@@ -17,7 +17,7 @@
           href: "/contact-details"
         },
         {
-          text: "Non UK / International"
+          text: "Correspondence addreess"
         }
         ]
     }) }}
@@ -38,7 +38,7 @@
     <span class="govuk-caption-l">
         Contact details
       </span>
-      What is your home address (international)?
+      Correspondence address (international)
     </h1>
 
   </div>
@@ -95,63 +95,6 @@
                             }) }}
 
                         {% include "../includes/countries-select.html" %}
-
-                        {{ govukRadios({
-                            classes: "govuk-radios--inline",
-                            idPrefix: "correspondence_address",
-                            name: "correspondence_address",
-                            fieldset: {
-                                legend: {
-                                text: "Would you prefer letters to be sent to a different address?",
-                                isPageHeading: false,
-                                classes: "govuk-fieldset__legend--m"
-                                }
-                            },
-                            items: [
-                                {
-                                    value: "yes",
-                                    text: "Yes",
-                                    checked: checked('correspondence_address', 'yes')
-                                },
-                                {
-                                    value: "no",
-                                    text: "No",
-                                    selected: true,
-                                    checked: checked('correspondence_address', 'no')
-                                }
-                            ]
-                            }) }}
-
-                            {% include "includes/residency-status.html" %}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Email address"
-                            },
-                            hint : {
-                                text: "Enter the email address you'd like to be used to contact you"
-                            },
-                            id: "contact_email_address",
-                            name: "contact_email_address"
-                            }) }}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Mobile phone number"
-                            },
-                            id: "contact_mobile_number",
-                            name: "contact_mobile_number",
-                            classes: "govuk-input--width-10"
-                            }) }}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Alternative phone number"
-                            },
-                            id: "mobile_number",
-                            name: "mobile_number",
-                            classes: "govuk-input--width-10"
-                            }) }}
                 {% endcall %}
 
             {{ govukButton({
