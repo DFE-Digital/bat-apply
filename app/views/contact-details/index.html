@@ -6,17 +6,20 @@
 
 {% block beforeContent %}
 
-    {{ govukBreadcrumbs({
-        items: [
-        {
-          text: "Your application",
-          href: "/your-application"
-        },
-        {
-          text: "Contact details"
-        }
-        ]
-    }) }}
+{{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Your application",
+      href: "/your-application"
+    },
+    {
+      text: "About you"
+    },
+    {
+      text: "Contact details"
+    }
+    ]
+}) }}
 
 {% endblock %}
 
@@ -34,7 +37,7 @@
     <span class="govuk-caption-l">
         Contact details
       </span>
-      What is your address?
+      Where do you live?
     </h1>
   </div>
 </div>
@@ -48,17 +51,17 @@
                 items: [
                     {
                     value: "uk",
-                    text: "UK"
+                    text: "In the UK"
                     },
                     {
                     value: "international",
-                    text: "Non-UK/international"
+                    text: "Outside the UK"
                     },
                     {
                     value: "bfpo",
-                    text: "BFPO",
+                    text: "I have a British Forces Post Office address",
                     hint: {
-                        text: "I have a British Forces Post Office address"
+                        text: ""
                     }
                     }
                 ]

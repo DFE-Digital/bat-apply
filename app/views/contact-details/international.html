@@ -13,11 +13,11 @@
           href: "/your-application"
         },
         {
-          text: "Contact details",
+          text: "About you",
           href: "/contact-details"
         },
         {
-          text: "Non UK / International"
+          text: "Contact details"
         }
         ]
     }) }}
@@ -38,7 +38,7 @@
     <span class="govuk-caption-l">
         Contact details
       </span>
-      What is your home address (international)?
+      What is your address?
     </h1>
 
   </div>
@@ -51,7 +51,7 @@
     {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
-                        
+
                          {{ govukInput({
                                 label: {
                                     text: "Building and street"
@@ -62,7 +62,7 @@
 
                         {{ govukInput({
                             label: {
-                                text: "Address line 2"
+                                text: ""
                             },
                             id: "address_line_2",
                             name: "address_line_2"
@@ -87,7 +87,7 @@
 
                         {{ govukInput({
                             label: {
-                                text: "Postcode or Zip"
+                                text: "Zip code"
                             },
                             id: "postcode",
                             name: "postcode",
@@ -102,7 +102,7 @@
                             name: "correspondence_address",
                             fieldset: {
                                 legend: {
-                                text: "Would you prefer letters to be sent to a different address?",
+                                text: "Would you prefer post sent to a different address?",
                                 isPageHeading: false,
                                 classes: "govuk-fieldset__legend--m"
                                 }
@@ -126,10 +126,10 @@
 
                         {{ govukInput({
                             label: {
-                                text: "Email address"
+                                text: "Preferred email address"
                             },
                             hint : {
-                                text: "Enter the email address you'd like to be used to contact you"
+                                text: ""
                             },
                             id: "contact_email_address",
                             name: "contact_email_address"

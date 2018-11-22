@@ -13,11 +13,11 @@
           href: "/your-application"
         },
         {
-          text: "Contact details",
+          text: "About you",
           href: "/contact-details"
         },
         {
-          text: "UK"
+          text: "Contact details"
         }
         ]
     }) }}
@@ -38,7 +38,7 @@
     <span class="govuk-caption-l">
         Contact details
       </span>
-      What is your home address (UK)?
+      What is your address?
     </h1>
 
   </div>
@@ -51,7 +51,7 @@
     {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
-                        
+
         {{ govukInput({
                 label: {
                     html: "Building and street <span class='govuk-visually-hidden'>line 1 of 2</span>"
@@ -100,7 +100,7 @@
             name: "correspondence_address",
             fieldset: {
                 legend: {
-                text: "Would you prefer letters to be sent to a different address?",
+                text: "Would you prefer post sent to a different address?",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--m"
                 }
@@ -119,15 +119,15 @@
                 }
             ]
             }) }}
-        
+
         {% include "includes/residency-status.html" %}
 
         {{ govukInput({
             label: {
-                text: "Email address"
+                text: "Preferred email address"
             },
             hint : {
-                text: "Enter the email address you'd like to be used to contact you"
+                text: ""
             },
             id: "contact_email_address",
             name: "contact_email_address"
@@ -150,7 +150,7 @@
             name: "mobile_number",
             classes: "govuk-input--width-10"
             }) }}
-                
+
     {% endcall %}
 
             {{ govukButton({

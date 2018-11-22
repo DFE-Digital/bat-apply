@@ -13,11 +13,7 @@
           href: "/your-application"
         },
         {
-          text: "Contact details",
-          href: "/contact-details"
-        },
-        {
-          text: "BFPO"
+          text: "Contact details"
         }
         ]
     }) }}
@@ -36,61 +32,23 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
     <span class="govuk-caption-l">
-        Contact details
+        Personal details
       </span>
-      Enter your BFPO address
+      What is your address?
     </h1>
+
   </div>
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="correspondence" method="post" class="form">
+    <form action="correspondence-details" method="post" class="form">
 
     {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
 
-                         {{ govukInput({
-                                label: {
-                                    text: "Service number, rank and name"
-                                },
-                                id: "address_line_1",
-                                name: "address_line_1"
-                                }) }}
-
-                        {{ govukInput({
-                            label : {
-                                text: "Unit or regiment"
-                            },
-                            id: "address_line_2",
-                            name: "address_line_2"
-                            }) }}
-
-                        {{ govukInput({
-                             label : {
-                                text: "Operation or location name, if applicable"
-                            },
-                            hint : {
-                                text: ""
-                            },
-                            id: "address_line_3",
-                            name: "address_line_3"
-                            }) }}
-
-                        {{ govukInput({
-                            label: {
-                                text: "BFPO Number"
-                            },
-                            hint : {
-                                text: "Please include the letters 'BFPO'"
-                            },
-                            id: "address_line_4",
-                            name: "address_line_4",
-                            classes: "govuk-input--width-10"
-                            }) }}
-
-                        {% include "../includes/countries-select.html" %}
+                         {% include "includes/address-fields.html" %}
 
                         {{ govukRadios({
                             classes: "govuk-radios",
@@ -100,26 +58,25 @@
                                 legend: {
                                 text: "Would you prefer post sent to a different address?",
                                 isPageHeading: false,
-                                classes: "govuk-fieldset__legend--m"
+                                classes: "govuk-fieldset__legend--s"
                                 }
                             },
                             items: [
                                 {
-                                    value: "yes",
-                                    text: "Yes",
-                                    checked: checked('correspondence_address', 'yes')
+                                value: "yes",
+                                text: "Yes",
+                                checked: checked('correspondence_address', 'yes'),
+                                conditional : {
+                                    html : addressFields
+                                }
                                 },
                                 {
-                                    value: "no",
-                                    text: "No",
-                                    selected: true,
-                                    checked: checked('correspondence_address', 'no')
+                                value: "no",
+                                text: "No",
+                                selected: true
                                 }
                             ]
                             }) }}
-
-                            {% include "includes/residency-status.html" %}
-
 
                         {{ govukInput({
                             label: {
@@ -128,16 +85,16 @@
                             hint : {
                                 text: ""
                             },
-                            id: "contact_email_address",
-                            name: "contact_email_address"
+                            id: "mobile_number",
+                            name: "mobile_number"
                             }) }}
 
                         {{ govukInput({
                             label: {
                                 text: "Mobile phone number"
                             },
-                            id: "contact_mobile_number",
-                            name: "contact_mobile_number",
+                            id: "mobile_number",
+                            name: "mobile_number",
                             classes: "govuk-input--width-10"
                             }) }}
 

@@ -38,7 +38,7 @@
     <span class="govuk-caption-l">
         Contact details
       </span>
-      Correspondence address (international)
+      Address for post
     </h1>
 
   </div>
@@ -51,7 +51,7 @@
     {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
-                        
+
                          {{ govukInput({
                                 label: {
                                     text: "Building and street"
@@ -62,7 +62,7 @@
 
                         {{ govukInput({
                             label: {
-                                text: "Address line 2"
+                                text: ""
                             },
                             id: "correspondence_address_line_2",
                             name: "correspondence_address_line_2"
@@ -98,7 +98,7 @@
                 {% endcall %}
 
             {{ govukButton({
-                text: "Save and return to dashboard"
+                text: "Save"
                 }) }}
     </form>
   </div>
