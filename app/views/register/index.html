@@ -1,71 +1,139 @@
+Fazal_DfE
+
+
+
+
+
+
+
+Message List
+1 new message since 11:06 AM on November 21st
+Mark as read
+
+Fazal Khan [11:31 AM]
+Untitled
 {% extends "layout.html" %}
-
+​
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+ GOV.UK Prototype Kit
 {% endblock %}
-
+​
 {% block beforeContent %}
-
-   {{ govukBackLink({
-        text: "Back",
-        href: "/"
-    }) }}
-
+​
+  {{ govukBackLink({
+    text: "Back",
+    href: "/"
+  }) }}
+​
 {% endblock %}
-
+​
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">
-        Create an account
-    </h1>
-
-  </div>
+ <div class="govuk-grid-column-two-thirds">
+  <h1 class="govuk-heading-l">
+    Create an account
+  </h1>
+​
+ </div>
 </div>
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <p>Create an account to use this service. You’ll then be able to save and return to your applications as often as you need to. </p>
-
-    <form action="/your-application" method="post" class="form">
-
-    {% call govukFieldset({
-                    }) %}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Enter your email address"
-                            },
-                            id: "register_email",
-                            name: "register_email",
-                            classes: "govuk-input--width-20",
-                            value: data[register_email]
-                            }) }}
-
-                        {{ govukInput({
-                            label: {
-                                text: "Create a password"
-                            },
-                            id: "candidate_password",
-                            classes: "govuk-input--width-20",
-                            name: "candidate_password",
-                            value: data[candidate_password]
-                            }) }}
-
-                {% endcall %}
-
-                {% call govukFieldset({
+ <div class="govuk-grid-column-two-thirds">
+ <p>Create an account to use this service. You’ll then be able to save and return to your applications as often as you need to. </p>
+​
+  <form action="/your-application" method="post" class="form">
+​
+  {% call govukFieldset({
+          }) %}
+​
+            {{ govukInput({
+              label: {
+                text: "Enter your email address"
+              },
+              id: "register_email",
+              name: "register_email",
+              classes: "govuk-input--width-20",
+              value: data[register_email]
+              }) }}
+​
+            {{ govukInput({
+              label: {
+                text: "Create a password"
+              },
+              id: "candidate_password",
+              classes: "govuk-input--width-20",
+              name: "candidate_password",
+              value: data[candidate_password]
+              }) }}
+​
+        {% endcall %}
+​
+        {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
 
-                    {% include "../includes/personal-details.html" %}
-                {% endcall %}
+                        {{ govukInput({
+                            label: {
+                                text: "First names"
+                            },
+                            id: "first_name",
+                            name: "first_name",
+                            value: data["first_name"]
+                            }) }}
 
-            {{ govukButton({
-                text: "Create an account"
-                }) }}
-    </form>
+                        {{ govukInput({
+                            label: {
+                                text: "Surname"
+                            },
+                            id: "last_name",
+                            name: "last_name",
+                            value: data["last_name"]
+                            }) }}
+
+                         {{ govukDateInput({
+                            id: "dob",
+                            namePrefix: "dob",
+                            fieldset: {
+                                legend: {
+                                text: "Date of birth",
+                                isPageHeading: true,
+                                classes: "govuk-fieldset__legend--m"
+                                }
+                            },
+                            hint: {
+                                text: "For example, 31 3 1980"
+                            },
+                            items: [
+                                    {
+                                        name: "day",
+                                        value: data['dob-day'],
+                                        classes: "govuk-input--width-2"
+                                    },
+                                    {
+                                        name: "month",
+                                        value: data['dob-month'],
+                                        classes: "govuk-input--width-2"
+                                    },
+                                    {
+                                        name: "year",
+                                        value: data['dob-year'],
+                                        classes: "govuk-input--width-4"
+                                    }
+                                ]
+                            }) }}
+            {% endcall %}
+​
+      {{ govukButton({
+        text: "Create an account"
+        }) }}
+  </form>
+ </div>
+ {# <div class="govuk-grid-column-one-third">
+  <div class="journey-widget">
+    <h3 class="govuk-heading-s">Relevant guidance here</h3>
+    <p>this information is required to setup your initial account</p>
   </div>
+ </div> #}
 </div>
 </div>
-
+​
 {% endblock %}
