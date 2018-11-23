@@ -43,25 +43,25 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+  <pre>
+  {{ data | dump(2) }}
+  </pre>
     <form action="/contact-details/correspondence" method="post" class="form">
             {{ govukRadios({
-                idPrefix: "where-do-you-live",
-                name: "where-do-you-live",
+                idPrefix: "correspondence-where-do-you-live",
+                name: "correspondence-where-do-you-live",
                 items: [
                     {
-                    value: "uk",
+                    value: "correspondence_uk",
                     text: "UK"
                     },
                     {
-                    value: "international",
-                    text: "Non-UK/international"
+                    value: "correspondence_international",
+                    text: "Outside the UK"
                     },
                     {
-                    value: "bfpo",
-                    text: "BFPO",
-                    hint: {
-                        text: "I have a British Forces Post Office address"
-                    }
+                    value: "correspondence_bfpo",
+                    text: "I have a British Forces Post Office address"
                     }
                 ]
                 }) }}
