@@ -4,6 +4,12 @@
 
 {% endset %}
 
+{% set countriesSelectContent %}
+
+    {% include "../includes/countries-select.html" %}
+
+{% endset %}
+
 {% set permanentResidenceContent %}
 
     {{ govukSelect({
@@ -93,7 +99,7 @@
             value: "no",
             text: "No",
             conditional : {
-                html : permanentResidenceContent
+                html : countriesSelectContent
             }
         }
     ]
