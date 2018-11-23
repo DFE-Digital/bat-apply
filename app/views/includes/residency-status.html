@@ -10,13 +10,49 @@
 
 {% endset %}
 
-{% set permanentResidenceContent %}
+{{ govukRadios({
+    classes: "govuk-radios govuk-!-width-two-thirds",
+    idPrefix: "permanent-residence",
+    name: "permanent-residence",
+    fieldset: {
+        legend: {
+        text: "Is your permanent home in the UK?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--m"
+        }
+    },
+    items: [
+        {
+            value: "yes",
+            text: "Yes",
+            conditional : {
+                html : boroughFormContent
+            }
+        },
+        {
+            value: "no",
+            text: "No",
+            conditional : {
+                html : countriesSelectContent
+            }
+        }
+    ]
+    }) }}
 
-    {{ govukSelect({
-        id: "sort",
+    
+{% call govukFieldset({
+  legend: {
+    text: "What is your residency status?",
+    classes: "govuk-fieldset__legend--m",
+    isPageHeading: false
+  }
+}) %}
+
+{{ govukSelect({
+        id: "residency-status",
         name: "sort",
         label: {
-            text: "Sort by"
+            html: '<span class="govuk-visually-hidden">What is your residency status?</span>'
         },
         items: [
             {
@@ -73,34 +109,4 @@
             }
         ]
         }) }}
-
-{% endset %}
-
-{{ govukRadios({
-    classes: "govuk-radios govuk-!-width-two-thirds",
-    idPrefix: "permanent-residence",
-    name: "permanent-residence",
-    fieldset: {
-        legend: {
-        text: "Is your permanent home in the UK?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--m"
-        }
-    },
-    items: [
-        {
-            value: "yes",
-            text: "Yes",
-            conditional : {
-                html : boroughFormContent
-            }
-        },
-        {
-            value: "no",
-            text: "No",
-            conditional : {
-                html : countriesSelectContent
-            }
-        }
-    ]
-    }) }}
+{% endcall %}
