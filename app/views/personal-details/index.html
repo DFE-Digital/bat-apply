@@ -100,13 +100,16 @@
                           value: data["title"],
                           items: [
                               {
+                              text: "Please select",
+                              selected: true
+                              },
+                              {
                               value: "Mr",
                               text: "Mr"
                               },
                               {
                               value: "Mrs",
-                              text: "Mrs",
-                              selected: true
+                              text: "Mrs"
                               },
                               {
                               value: "Miss",
@@ -141,29 +144,29 @@
                         value: data["last_name"]
                         }) }}
 
-
-
-
-
-                {{ govukSelect({
-                      id: "gender",
-                      name: "gender",
-                      label: {
-                          text: "Gender"
-                      },
-                      value: data["gender"],
-                      items: [
+                
+                {{ govukRadios({
+                        classes: "govuk-radios",
+                        idPrefix: "gender",
+                        name: "gender",
+                        fieldset: {
+                          legend: {
+                            text: "Gender",
+                            isPageHeading: false,
+                            classes: "govuk-fieldset__legend--s"
+                          }
+                        },
+                        items: [
                           {
-                          value: "male",
-                          text: "Male"
+                            value: "male",
+                            text: "Male"
                           },
                           {
-                          value: "female",
-                          text: "Female",
-                          selected: true
+                            value: "female",
+                            text: "Female"
                           }
-                      ]
-                  }) }}
+                        ]
+                      }) }}
 
                   {{ govukDateInput({
                     id: "dob",
