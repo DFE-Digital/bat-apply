@@ -123,21 +123,12 @@
                                 {% call govukFieldset({
                                         classes : 'govuk-!-width-two-thirds',
                                         legend: {
-                                        text: "What is your email address and phone number?",
+                                        text: "What is your phone number?",
                                         classes: "govuk-fieldset__legend--m",
                                         isPageHeading: true
                                         }
                                         }) %}
-                        {{ govukInput({
-                            label: {
-                                text: "Preferred email address"
-                            },
-                            hint : {
-                                text: ""
-                            },
-                            id: "contact_email_address",
-                            name: "contact_email_address"
-                            }) }}
+                        
 
                         {{ govukInput({
                             label: {
