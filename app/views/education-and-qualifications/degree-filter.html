@@ -16,7 +16,7 @@
           text: "Education and qualifications"
         },
         {
-          text: "Add a degree"
+          text: "Enter degree"
         }
         ]
     }) }}
@@ -30,7 +30,7 @@
 {% endset %}
 
 {% set stillStudyingReveal %}
-    <p>Your degree result will be automatically marked as ‘pending’. Please note that you must have successfully graduated by the time you start your teacher training.</p>
+    <p>Your degree result will be automatically marked as ‘pending’. You must complete your degree by the time you start your course.</p>
 {% endset %}
 
 <div class="govuk-grid-row">
@@ -47,17 +47,17 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="/education-and-qualifications/degree-type" method="post" class="form">           
+    <form action="/education-and-qualifications/degree-type" method="post" class="form">
 
             {% call govukFieldset({
                 }) %}
-                <p>Start by giving us your degree for the subject you’d like to teach. You’ll have the option to add other degrees later.</p>   
+                <p>Start by giving us your degree for the subject you’d like to teach. You’ll have the option to add other degrees later.</p>
 
                 {{ govukDetails({
                     summaryText: "I don’t want to teach the subject of my degree",
                     html: degreeSubjectRreveal
-                    }) }}           
-                
+                    }) }}
+
                 {{ govukRadios({
                     idPrefix: "degree-still-studying",
                     name: "degree-still-studying",
@@ -108,7 +108,7 @@
 
 
             {% endcall %}
-        
+
 
         {{ govukButton({
             text: "Save and continue"

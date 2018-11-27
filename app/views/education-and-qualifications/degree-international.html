@@ -16,7 +16,7 @@
           text: "Education and qualifications"
         },
         {
-          text: "Add a degree"
+          text: "Enter degree"
         }
         ]
     }) }}
@@ -36,7 +36,7 @@
         },
         id: "other-qualification-detail",
         name: "other-qualification-detail"
-        }) }}      
+        }) }}
 {% endset %}
 
 <div class="govuk-grid-row">
@@ -53,7 +53,7 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="/education-and-qualifications/gcse-english" method="post" class="form">           
+    <form action="/education-and-qualifications/gcse-english" method="post" class="form">
 
             <p>Enter your degree details as they appear on your certificate and contact your training provider to check your qualification is recognised. <a href="https://www.naric.org.uk/naric/Individuals/Default.aspx">UK NARIC</a> may also be able to help with validation. </p>
 
@@ -67,7 +67,7 @@
                     classes: "govuk-!-width-three-quarters",
                     id: "education-international-degree-type",
                     name: "education-international-degree-type"
-                    }) }}    
+                    }) }}
 
                 {{ govukInput({
                     label: {
@@ -79,8 +79,8 @@
                     classes: "govuk-!-width-three-quarters",
                     id: "education-international-degree-type",
                     name: "education-international-degree-type"
-                    }) }}    
-                
+                    }) }}
+
                 {{ govukInput({
                     label: {
                         text: "Name of your course"
@@ -88,7 +88,7 @@
                     classes: "govuk-!-width-three-quarters",
                     id: "education-international-degree-name",
                     name: "education-international-degree-name"
-                    }) }}  
+                    }) }}
 
                 {{ govukInput({
                     label: {
@@ -101,8 +101,8 @@
                     id: "education-international-degree-class",
                     name: "education-international-degree-class"
                     }) }}
-                
-                
+
+
                 {{ govukDateInput({
                         id: "degree-start-date",
                         namePrefix: "degree-start-date",
@@ -134,7 +134,7 @@
                                 }
                             ]
                         }) }}
-                    
+
                 {{ govukDateInput({
                         id: "degree-results-date",
                         namePrefix: "degree-results-date",
@@ -168,7 +168,7 @@
                         }) }}
 
             {% endcall %}
-        
+
 
         {{ govukButton({
             text: "Save and continue"
