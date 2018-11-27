@@ -54,9 +54,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="/education-and-qualifications/gcse-english" method="post" class="form">
-
-            <p>Enter your degree details as they appear on your certificate and contact your training provider to check your qualification is recognised. <a href="https://www.naric.org.uk/naric/Individuals/Default.aspx">UK NARIC</a> may also be able to help with validation. </p>
-
             {% call govukFieldset({
                 }) %}
 
@@ -90,16 +87,45 @@
                     name: "education-uk-degree-name"
                     }) }}
 
-                {{ govukInput({
-                    label: {
-                        text: "Degree class"
+                {{ govukRadios({
+                    idPrefix: "where-do-you-live",
+                    name: "where-do-you-live",
+                    fieldset: {
+                        legend: {
+                        text: "Degree class",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--m"
+                        }
                     },
-                    hint: {
-                        text: "For example, First, 2.1, 2.2, Third, or other, please specify"
-                    },
-                    classes: "govuk-!-width-one-half",
-                    id: "education-uk-degree-class",
-                    name: "education-uk-degree-class"
+                    items: [
+                        {
+                        value: "degree-first-class",
+                        text: "First"
+                        },
+                        {
+                        value: "degree-first-class",
+                        text: "Upper second"
+                        },
+                        {
+                        value: "degree-lower-second",
+                        text: "Lower second"
+                        },
+                        {
+                        value: "degree--third",
+                        text: "Third"
+                        },
+                        {
+                        value: "degree-pass",
+                        text: "Pass"
+                        },
+                        {
+                        divider: "or"
+                        },
+                        {
+                        value: "degree-other",
+                        text: "Other"
+                        }
+                    ]
                     }) }}
 
 

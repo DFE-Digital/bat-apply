@@ -7,11 +7,21 @@ const educationRouter = (req, res) => {
       params: req.params
     };
     //
-    if (step) {
+    if (step === 'degree-type') {
+      let location = req.session.data['degree-where'];
+
+      if (location === 'degree-uk') {
+        res.redirect('/education-and-qualifications/degree')
+      } else {
+        res.redirect('/education-and-qualifications/degree-international')
+      }
+    } else if (step) {
         template = `education-and-qualifications/${step}`;
-    };
-  
-    res.render(template, params);
+        res.render(template, params);
+    } else {
+      res.render(template, params);
+    }
+    
   };
   
   module.exports = educationRouter;
