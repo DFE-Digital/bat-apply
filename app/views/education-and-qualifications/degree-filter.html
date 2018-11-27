@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "/your-application"
+        },
+        {
+          text: "Education and qualifications"
+        },
+        {
+          text: "Add a degree"
+        }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% set degreeSubjectRreveal %}
+    <p>You can also complete a course to teach a subject you studied at A level, as a module of your degree, or that you have expertise in through work. Talk to your training provider, or learn more at <a href="https://getintoteaching.education.gov.uk/explore-my-options/teacher-training-routes/subject-knowledge-enhancement-ske-courses">Get into Teaching.</a> </p>
+{% endset %}
+
+{% set stillStudyingReveal %}
+    <p>Your degree result will be automatically marked as ‘pending’. Please note that you must have successfully graduated by the time you start your teacher training.</p>
+{% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+    <span class="govuk-caption-xl">
+        Education and qualifications
+      </span>
+      Add a degree
+      <p>
+    </h1>
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/education-and-qualifications/degree" method="post" class="form">           
+
+            {% call govukFieldset({
+                }) %}
+                <p>Start by giving us your degree for the subject you’d like to teach. You’ll have the option to add other degrees later.</p>   
+
+                {{ govukDetails({
+                    summaryText: "I don’t want to teach the subject of my degree",
+                    html: degreeSubjectRreveal
+                    }) }}           
+                
+                {{ govukRadios({
+                    idPrefix: "degree-still-studying",
+                    name: "degree-still-studying",
+                    fieldset: {
+                        legend: {
+                        text: "I am still studying for my degree",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--m"
+                        }
+                    },
+                    items: [
+                        {
+                        value: "yes",
+                        text: "Yes"
+                        },
+                        {
+                        value: "no",
+                        text: "No",
+                        conditional : {
+                            html : stillStudyingReveal
+                        }
+                        }
+                    ]
+                    }) }}
+
+
+                     {{ govukRadios({
+                        idPrefix: "degree-where",
+                        name: "degree-where",
+                        fieldset: {
+                            legend: {
+                            text: "Where did you study for your degree?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m"
+                            }
+                        },
+                        items: [
+                            {
+                            value: "degree-uk",
+                            text: "In the UK"
+                            },
+                            {
+                            value: "degree-international",
+                            text: "Outside the UK"
+                            }
+                        ]
+                        }) }}
+
+
+            {% endcall %}
+        
+
+        {{ govukButton({
+            text: "Save and continue"
+            }) }}
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h3 class="govuk-heading-s">Guidance and links</h3>
+    <p><a href="guidance">Guidance to support this service </a></p>
+  </div>
+</div>
+</div>
+
+{% endblock %}
