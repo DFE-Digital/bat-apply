@@ -38,7 +38,7 @@
     <span class="govuk-caption-l">
         Contact details
       </span>
-      Correspondence address (UK)
+      Where would you prefer post sent?
     </h1>
 
   </div>
@@ -51,7 +51,7 @@
     {% call govukFieldset({
                     classes : 'govuk-!-width-two-thirds'
                     }) %}
-                        
+
         {{ govukInput({
                 label: {
                     html: "Building and street <span class='govuk-visually-hidden'>line 1 of 2</span>"
@@ -93,7 +93,7 @@
             name: "correspondence_postcode",
             classes: "govuk-input--width-5"
             }) }}
-                
+
     {% endcall %}
 
             {{ govukButton({
