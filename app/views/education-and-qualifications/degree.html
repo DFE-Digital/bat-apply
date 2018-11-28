@@ -13,7 +13,7 @@
           href: "/your-application"
         },
         {
-          text: "Education and qualifications"
+          text: "Eligibility and qualifications"
         },
         {
           text: "Your degree"
@@ -26,7 +26,7 @@
 {% block content %}
 
 {% set outsideUKreveal %}
-    <p>Enter your degree details as they appear on your certificate and contact your training provider to check your qualification is recognised. <a href="https://www.naric.org.uk/naric/Individuals/Default.aspx">UK NARIC</a> may also be able to help.  </p>
+    <p>Enter your degree details as they appear on your certificate and contact your training provider to check your qualification is recognised. <a href="https://www.naric.org.uk/naric/Individuals/Default.aspx">UK NARIC</a> may also be able to help with validation.  </p>
 {% endset %}
 
 {% set otherQualification %}
@@ -43,7 +43,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
     <span class="govuk-caption-xl">
-        Education and qualifications
+        Eligibility and qualifications
       </span>
       Enter degree
       <p>
@@ -81,6 +81,9 @@
                 {{ govukInput({
                     label: {
                         text: "Name of your course"
+                      },
+                      hint: {
+                          text: "For example, Geography, Art and Design, Biological Sciences"
                     },
                     classes: "govuk-!-width-three-quarters",
                     id: "education-uk-degree-name",
@@ -140,7 +143,7 @@
                             }
                         },
                         hint: {
-                            text: "For example, 31 3 1980"
+                            text: "For example, 1 10 2013"
                         },
                         items: [
                                 {
@@ -172,7 +175,7 @@
                             }
                         },
                         hint: {
-                            text: "For example, 31 3 1980"
+                            text: "For example, 1 6 2016"
                         },
                         items: [
                                 {
