@@ -34,6 +34,9 @@
         label: {
             text: "Other qualification"
         },
+        hint: {
+            text: "If you went to Cambridge, enter your four categories"
+        },
         id: "other-qualification-detail",
         name: "other-qualification-detail"
         }) }}      
@@ -123,7 +126,10 @@
                         },
                         {
                         value: "degree-other",
-                        text: "Other"
+                        text: "Other",
+                        conditional: {
+                            html : otherQualification
+                        }
                         }
                     ]
                     }) }}
