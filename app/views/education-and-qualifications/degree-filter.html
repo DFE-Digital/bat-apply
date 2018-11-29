@@ -13,10 +13,10 @@
           href: "/your-application"
         },
         {
-          text: "Education and qualifications"
+          text: "Eligibility and qualifications"
         },
         {
-          text: "Add a degree"
+          text: "Enter degree"
         }
         ]
     }) }}
@@ -26,18 +26,18 @@
 {% block content %}
 
 {% set degreeSubjectRreveal %}
-    <p>You can also complete a course to teach a subject you studied at A level, as a module of your degree, or that you have expertise in through work. Talk to your training provider, or learn more at <a href="https://getintoteaching.education.gov.uk/explore-my-options/teacher-training-routes/subject-knowledge-enhancement-ske-courses">Get into Teaching.</a> </p>
+    <p>You can also complete a 'subject knowledge enhancement' course to teach a subject you studied as a module of your degree, at A level, or that you have expertise in through work. Talk to your training provider, or learn more at <a href="https://getintoteaching.education.gov.uk/explore-my-options/teacher-training-routes/subject-knowledge-enhancement-ske-courses">Get into Teaching.</a> <p>Enter a degree qualification here to confirm your eligibility for teacher training, even if you want to teach a different subject.</p>
 {% endset %}
 
 {% set stillStudyingReveal %}
-    <p>Your degree result will be automatically marked as ‘pending’. Please note that you must have successfully graduated by the time you start your teacher training.</p>
+    <p>Your degree result will be automatically marked as ‘pending’. You must complete your degree by the time you start your course.</p>
 {% endset %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
     <span class="govuk-caption-xl">
-        Education and qualifications
+        Eligibility and qualifications
       </span>
       Add a degree
       <p>
@@ -47,23 +47,23 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="/education-and-qualifications/degree-type" method="post" class="form">           
+    <form action="/education-and-qualifications/degree-type" method="post" class="form">
 
             {% call govukFieldset({
                 }) %}
-                <p>Start by giving us your degree for the subject you’d like to teach. You’ll have the option to add other degrees later.</p>   
+                <p>Start by giving us your degree for the subject you’d like to teach. You’ll have the option to add other degrees later.</p>
 
                 {{ govukDetails({
                     summaryText: "I don’t want to teach the subject of my degree",
                     html: degreeSubjectRreveal
-                    }) }}           
-                
+                    }) }}
+
                 {{ govukRadios({
                     idPrefix: "degree-still-studying",
                     name: "degree-still-studying",
                     fieldset: {
                         legend: {
-                        text: "I am still studying for my degree",
+                        text: "Are you still studying for your degree?",
                         isPageHeading: true,
                         classes: "govuk-fieldset__legend--m"
                         }
@@ -71,14 +71,14 @@
                     items: [
                         {
                         value: "yes",
-                        text: "Yes"
-                        },
-                        {
-                        value: "no",
-                        text: "No",
+                        text: "Yes",
                         conditional : {
                             html : stillStudyingReveal
                         }
+                        },
+                        {
+                        value: "no",
+                        text: "No"
                         }
                     ]
                     }) }}
@@ -108,7 +108,7 @@
 
 
             {% endcall %}
-        
+
 
         {{ govukButton({
             text: "Save and continue"

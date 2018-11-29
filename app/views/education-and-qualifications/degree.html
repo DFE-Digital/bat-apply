@@ -13,10 +13,10 @@
           href: "/your-application"
         },
         {
-          text: "Education and qualifications"
+          text: "Eligibility and qualifications"
         },
         {
-          text: "Add a degree"
+          text: "Your degree"
         }
         ]
     }) }}
@@ -26,7 +26,7 @@
 {% block content %}
 
 {% set outsideUKreveal %}
-    <p>Enter your degree details as they appear on your certificate and contact your training provider to check your qualification is recognised. <a href="https://www.naric.org.uk/naric/Individuals/Default.aspx">UK NARIC</a> may also be able to help.  </p>
+    <p>Enter your degree details as they appear on your certificate and contact your training provider to check your qualification is recognised. <a href="https://www.naric.org.uk/naric/Individuals/Default.aspx">UK NARIC</a> may also be able to help with validation.  </p>
 {% endset %}
 
 {% set otherQualification %}
@@ -39,16 +39,16 @@
         },
         id: "other-qualification-detail",
         name: "other-qualification-detail"
-        }) }}      
+        }) }}
 {% endset %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
     <span class="govuk-caption-xl">
-        Education and qualifications
+        Eligibility and qualifications
       </span>
-      Add a degree
+      Enter degree
       <p>
     </h1>
 
@@ -56,7 +56,7 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="/education-and-qualifications/gcse-english" method="post" class="form">           
+    <form action="/your-application" method="post" class="form">           
             {% call govukFieldset({
                 }) %}
 
@@ -67,7 +67,7 @@
                     classes: "govuk-!-width-three-quarters",
                     id: "education-uk-degree-type",
                     name: "education-uk-degree-type"
-                    }) }}    
+                    }) }}
 
                 {{ govukInput({
                     label: {
@@ -79,16 +79,19 @@
                     classes: "govuk-!-width-three-quarters",
                     id: "education-uk-degree-type",
                     name: "education-uk-degree-type"
-                    }) }}    
-                
+                    }) }}
+
                 {{ govukInput({
                     label: {
                         text: "Name of your course"
+                      },
+                      hint: {
+                          text: "For example, Geography, Art and Design, Biological Sciences"
                     },
                     classes: "govuk-!-width-three-quarters",
                     id: "education-uk-degree-name",
                     name: "education-uk-degree-name"
-                    }) }}  
+                    }) }}
 
                 {{ govukRadios({
                     idPrefix: "where-do-you-live",
@@ -133,8 +136,8 @@
                         }
                     ]
                     }) }}
-                
-                
+
+
                 {{ govukDateInput({
                         id: "degree-start-date",
                         namePrefix: "degree-start-date",
@@ -146,7 +149,7 @@
                             }
                         },
                         hint: {
-                            text: "For example, 31 3 1980"
+                            text: "For example, 1 10 2013"
                         },
                         items: [
                                 {
@@ -166,7 +169,7 @@
                                 }
                             ]
                         }) }}
-                    
+
                 {{ govukDateInput({
                         id: "degree-results-date",
                         namePrefix: "degree-results-date",
@@ -178,7 +181,7 @@
                             }
                         },
                         hint: {
-                            text: "For example, 31 3 1980"
+                            text: "For example, 1 6 2016"
                         },
                         items: [
                                 {
@@ -200,7 +203,7 @@
                         }) }}
 
             {% endcall %}
-        
+
 
         {{ govukButton({
             text: "Save and continue"
