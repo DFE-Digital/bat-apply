@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "/your-application"
+        },
+        {
+          text: "Eligibility and qualifications"
+        },
+        {
+          text: "Add Science GCSE"
+        }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+    {% set alphabeticScienceGrades %}
+
+        {{ govukInput({
+            label: {
+                text: "A-G Result"
+            },
+            classes: "govuk-input--width-2",
+            id: "science-gcse-result",
+            name: "science-gcse-result"
+            }) }}
+    {% endset %}
+
+    {% set numericScienceGrades %}
+
+        {{ govukInput({
+            label: {
+                text: "1-9 Result"
+            },
+            classes: "govuk-input--width-2",
+            id: "science-gcse-result",
+            name: "science-gcse-result"
+            }) }}
+
+    {% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+    <span class="govuk-caption-xl">
+        Eligibility and qualifications (step 1 of 3)
+      </span>
+      Add Science GCSE
+    </h1>
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/education-and-qualifications/statutory-gcse-maths" method="post" class="form">
+
+                {% call govukFieldset({
+
+                    }) %}
+
+                    {{ govukDateInput({
+                        id: "gcse-science-date",
+                        namePrefix: "gcse-science-date",
+                        fieldset: {
+                            legend: {
+                            text: "Date you sat the exam",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m"
+                            }
+                        },
+                        hint: {
+                            text: "For example, 1 10 2013"
+                        },
+                        items: [
+
+                                {
+                                    name: "day",
+                                    value: data['gcse-science-date-day'],
+                                    classes: "govuk-input--width-2"
+                                },
+                                {
+                                    name: "month",
+                                    value: data['gcse-science-date-month'],
+                                    classes: "govuk-input--width-2"
+                                },
+                                {
+                                    name: "year",
+                                    value: data['gcse-science-date-year'],
+                                    classes: "govuk-input--width-4"
+                                }
+                            ]
+                        }) }}
+
+
+                    {{ govukInput({
+                        label: {
+                            text: "Examination board"
+                        },
+                            classes: "govuk-!-width-two-thirds",
+                            id: "science-gcse-examination-board",
+                            name: "science-gcse-examination-board"
+                            }) }}
+
+                        {{ govukRadios({
+                            idPrefix: "science-gcse-result",
+                            name: "science-gcse-result",
+                            fieldset: {
+                                legend: {
+                                text: "When did you receive your result?",
+                                isPageHeading: false,
+                                classes: "govuk-fieldset__legend--m"
+                                }
+                            },
+                            items: [
+                                {
+                                value: "alphabetic",
+                                text: "Before 2017",
+                                conditional: {
+                                    html: alphabeticScienceGrades
+                                }
+                                },
+                                {
+                                value: "numeric",
+                                text: "After 2017",
+                                conditional: {
+                                    html: numericScienceGrades
+                                }
+                                }
+                            ]
+                            }) }}
+                    
+                {% endcall %}
+
+        {{ govukButton({
+            text: "Continue to add Maths GCSE"
+            }) }}
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h3 class="govuk-heading-s">Guidance and links</h3>
+    <p><a href="guidance">Guidance to support this service </a></p>
+  </div>
+</div>
+</div>
+
+{% endblock %}

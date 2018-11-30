@@ -53,7 +53,7 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="/your-application" method="post" class="form">           
+    <form action="gcse-or-equivalent" method="post" class="form">           
 
             <p>Enter your degree details as they appear on your certificate and contact your training provider to check your qualification is recognised. <br> <a href="https://www.naric.org.uk/naric/Individuals/Default.aspx">UK NARIC</a> may also be able to help with validation. </p>
 
@@ -149,14 +149,9 @@
                             }
                         },
                         hint: {
-                            text: "For example, 1 6 2016"
+                            text: "For example, 6 2016"
                         },
                         items: [
-                                {
-                                    name: "day",
-                                    value: data['degree-international-results-date-day'],
-                                    classes: "govuk-input--width-2"
-                                },
                                 {
                                     name: "month",
                                     value: data['degree-international-results-date-month'],

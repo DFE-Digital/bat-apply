@@ -15,7 +15,16 @@ const educationRouter = (req, res) => {
       } else {
         res.redirect('/education-and-qualifications/degree-international')
       }
-    } else if (step) {
+    } else if (step === 'gcse-filter') {
+      let type = req.session.data['gcse-equivalent'];
+
+      if (type === 'gcse') {
+        res.redirect('/education-and-qualifications/statutory-gcse')
+      } else {
+        res.redirect('/education-and-qualifications/statutory-gcse-equivalent')
+      }
+    } 
+      else if (step) {
         template = `education-and-qualifications/${step}`;
         res.render(template, params);
     } else {
