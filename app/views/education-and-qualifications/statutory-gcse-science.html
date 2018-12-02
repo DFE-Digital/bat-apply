@@ -29,7 +29,7 @@
 
         {{ govukInput({
             label: {
-                text: "A-G Result"
+                text: "Result"
             },
             classes: "govuk-input--width-2",
             id: "science-gcse-result",
@@ -41,7 +41,7 @@
 
         {{ govukInput({
             label: {
-                text: "1-9 Result"
+                text: "Result"
             },
             classes: "govuk-input--width-2",
             id: "science-gcse-result",
@@ -64,7 +64,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="/education-and-qualifications/statutory-gcse-maths" method="post" class="form">
-
                 {% call govukFieldset({
 
                     }) %}
@@ -117,7 +116,7 @@
                             name: "science-gcse-result",
                             fieldset: {
                                 legend: {
-                                text: "When did you receive your result?",
+                                text: "What was your result?",
                                 isPageHeading: false,
                                 classes: "govuk-fieldset__legend--m"
                                 }
@@ -125,14 +124,14 @@
                             items: [
                                 {
                                 value: "alphabetic",
-                                text: "Before 2017",
+                                text: "Grade A* to G",
                                 conditional: {
                                     html: alphabeticScienceGrades
                                 }
                                 },
                                 {
                                 value: "numeric",
-                                text: "After 2017",
+                                text: "Grade 1 to 9",
                                 conditional: {
                                     html: numericScienceGrades
                                 }
@@ -143,7 +142,7 @@
                 {% endcall %}
 
         {{ govukButton({
-            text: "Continue to add Maths GCSE"
+            text: "Add and continue to Maths GCSE"
             }) }}
     </form>
   </div>

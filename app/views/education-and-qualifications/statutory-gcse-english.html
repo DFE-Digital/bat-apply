@@ -117,7 +117,7 @@
                             name: "english-gcse-result",
                             fieldset: {
                                 legend: {
-                                text: "When did you receive your result?",
+                                text: "What was your result?",
                                 isPageHeading: false,
                                 classes: "govuk-fieldset__legend--m"
                                 }
@@ -125,14 +125,14 @@
                             items: [
                                 {
                                 value: "alphabetic",
-                                text: "Before 2017",
+                                text: "Grade A* to G",
                                 conditional: {
                                     html: alphabeticEnglishGrades
                                 }
                                 },
                                 {
                                 value: "numeric",
-                                text: "After 2017",
+                                text: "Grade 1 to 9",
                                 conditional: {
                                     html: numericEnglishGrades
                                 }
@@ -143,7 +143,7 @@
                 {% endcall %}
 
         {{ govukButton({
-            text: "Continue to add Science GCSE"
+            text: "Add and continue to overview"
             }) }}
     </form>
   </div>

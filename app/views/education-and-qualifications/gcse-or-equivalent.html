@@ -25,13 +25,11 @@
 
 {% block content %}
 
-{% set degreeSubjectRreveal %}
-    <p>You can also complete a 'subject knowledge enhancement' course to teach a subject you studied as a module of your degree, at A level, or that you have expertise in through work. Talk to your training provider, or learn more at <a href="https://getintoteaching.education.gov.uk/explore-my-options/teacher-training-routes/subject-knowledge-enhancement-ske-courses">Get into Teaching.</a> <p>Enter a degree qualification here to confirm your eligibility for teacher training, even if you want to teach a different subject.</p>
+{% set missingGCSE %}
+    <p>To find GCSE courses for people who are over 16 and have left school, visit the <a href='https://nationalcareersservice.direct.gov.uk/course-directory/home'>National Careers Service.</a></p>
+    <p>Some training providers organise ‘equivalency tests’ for applicants without the right GCSEs, to check they meet the necessary standard. To find out more, contact your chosen provider.</p>  
 {% endset %}
 
-{% set stillStudyingReveal %}
-    <p>Your degree result will be automatically marked as ‘pending’. You must complete your degree by the time you start your course.</p>
-{% endset %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -70,14 +68,13 @@
                     }) }}
                     {{ govukDetails({
                     summaryText: "I am missing a required GCSE",
-                        html: "To find GCSE courses for people who are over 16 and have left school, visit the <a href='https://nationalcareersservice.direct.gov.uk/course-directory/home'>National Careers Service.</a>"
+                        html: missingGCSE
                     }) }}
 
-                    <p>Some training providers organise ‘equivalency tests’ for applicants without the right GCSEs, to check they meet the necessary standard. To find out more, contact your chosen provider.</p>
                     {{ govukRadios({
                         classes: "govuk-radios",
-                        idPrefix: "gcse-equivalent",
-                        name: "gcse-equivalent",
+                        idPrefix: "gcse-or-equivalent",
+                        name: "gcse-or-equivalent",
                         fieldset: {
                             legend: {
                             text: "Choose the qualification you want to enter",

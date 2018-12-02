@@ -16,7 +16,7 @@
           text: "Eligibility and qualifications"
         },
         {
-          text: "Add English GCSE"
+          text: "Add English GCSE equivalent"
         }
         ]
     }) }}
@@ -25,106 +25,68 @@
 
 {% block content %}
 
-    {% set alphabeticEnglishGrades %}
-
-        {{ govukInput({
-            label: {
-                text: "A-G Result"
-            },
-            classes: "govuk-input--width-2",
-            id: "english-gcse-result",
-            name: "english-gcse-result"
-            }) }}
-    {% endset %}
-
-    {% set numericEnglishGrades %}
-
-        {{ govukInput({
-            label: {
-                text: "1-9 Result"
-            },
-            classes: "govuk-input--width-2",
-            id: "english-gcse-result",
-            name: "english-gcse-result"
-            }) }}
-
-    {% endset %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
     <span class="govuk-caption-xl">
-        Eligibility and qualifications (step 3 of 3)
+        Eligibility and qualifications (step 2 of 3)
       </span>
-      Add English GCSE
+      Add English GCSE equivalent
     </h1>
 
   </div>
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="/your-application" method="post" class="form">
+    <form action="/education-and-qualifications/statutory-equivalent-english" method="post" class="form">
 
                 {% call govukFieldset({
 
                     }) %}
 
-                    {{ govukDateInput({
-                        id: "gcse-english-date",
-                        namePrefix: "gcse-english-date",
-                        fieldset: {
-                            legend: {
-                            text: "Date you sat the exam",
-                            isPageHeading: true,
-                            classes: "govuk-fieldset__legend--m"
-                            }
+                    
+                    
+                    {{ govukInput({
+                        label: {
+                            text: "Name of qualification"
                         },
-                        hint: {
-                            text: "For example, 1 10 2013"
-                        },
-                        items: [
-
-                                {
-                                    name: "day",
-                                    value: data['gcse-english-date-day'],
-                                    classes: "govuk-input--width-2"
-                                },
-                                {
-                                    name: "month",
-                                    value: data['gcse-english-date-month'],
-                                    classes: "govuk-input--width-2"
-                                },
-                                {
-                                    name: "year",
-                                    value: data['gcse-english-date-year'],
-                                    classes: "govuk-input--width-4"
-                                }
-                            ]
-                        }) }}
-
+                            classes: "govuk-!-width-two-thirds",
+                            id: "english-equivalent-examination-board",
+                            name: "english-equivalent-examination-board"
+                            }) }}
 
                     {{ govukInput({
                         label: {
-                            text: "Examination board"
+                            text: "Awarding organisation"
                         },
                             classes: "govuk-!-width-two-thirds",
-                            id: "english-gcse-examination-board",
-                            name: "english-gcse-examination-board"
+                            id: "english-equivalent-examination-board",
+                            name: "english-equivalent-examination-board"
                             }) }}
+                    
 
                          {{ govukInput({
                             label: {
                                 text: "Result"
                             },
-                            classes: "govuk-!-width-two-thirds",
+                            classes: "govuk-!-width-one-third",
                             id: "english-equivalent-result",
                             name: "english-equivalent-result"
+                            }) }}
+                        
+                        {{ govukInput({
+                            label: {
+                                text: "Year awarded"
+                            },
+                            classes: "govuk-input--width-4",
+                            id: "english-equivalent-date",
+                            name: "english-equivalent-date"
                             }) }}
                     
                 {% endcall %}
 
         {{ govukButton({
-            text: "Continue to add Science GCSE"
+            text: "Add and continue to overview"
             }) }}
     </form>
   </div>

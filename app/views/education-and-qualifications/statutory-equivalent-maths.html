@@ -16,7 +16,7 @@
           text: "Eligibility and qualifications"
         },
         {
-          text: "Add Maths GCSE"
+          text: "Add Maths GCSE equivalent"
         }
         ]
     }) }}
@@ -25,38 +25,13 @@
 
 {% block content %}
 
-    {% set alphabeticMathsGrades %}
-
-        {{ govukInput({
-            label: {
-                text: "A-G Result"
-            },
-            classes: "govuk-input--width-2",
-            id: "maths-gcse-result",
-            name: "maths-gcse-result"
-            }) }}
-    {% endset %}
-
-    {% set numericMathsGrades %}
-
-        {{ govukInput({
-            label: {
-                text: "1-9 Result"
-            },
-            classes: "govuk-input--width-2",
-            id: "maths-gcse-result",
-            name: "maths-gcse-result"
-            }) }}
-
-    {% endset %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
     <span class="govuk-caption-xl">
         Eligibility and qualifications (step 2 of 3)
       </span>
-      Add English GCSE
+      Add Maths GCSE equivalent
     </h1>
 
   </div>
@@ -69,62 +44,49 @@
 
                     }) %}
 
-                    {{ govukDateInput({
-                        id: "gcse-maths-date",
-                        namePrefix: "gcse-maths-date",
-                        fieldset: {
-                            legend: {
-                            text: "Date you sat the exam",
-                            isPageHeading: true,
-                            classes: "govuk-fieldset__legend--m"
-                            }
+                    
+                    
+                    {{ govukInput({
+                        label: {
+                            text: "Name of qualification"
                         },
-                        hint: {
-                            text: "For example, 1 10 2013"
-                        },
-                        items: [
-
-                                {
-                                    name: "day",
-                                    value: data['gcse-maths-date-day'],
-                                    classes: "govuk-input--width-2"
-                                },
-                                {
-                                    name: "month",
-                                    value: data['gcse-maths-date-month'],
-                                    classes: "govuk-input--width-2"
-                                },
-                                {
-                                    name: "year",
-                                    value: data['gcse-maths-date-year'],
-                                    classes: "govuk-input--width-4"
-                                }
-                            ]
-                        }) }}
-
+                            classes: "govuk-!-width-two-thirds",
+                            id: "maths-equivalent-examination-board",
+                            name: "maths-equivalent-examination-board"
+                            }) }}
 
                     {{ govukInput({
                         label: {
-                            text: "Examination board"
+                            text: "Awarding organisation"
                         },
                             classes: "govuk-!-width-two-thirds",
-                            id: "maths-gcse-examination-board",
-                            name: "maths-gcse-examination-board"
+                            id: "maths-equivalent-examination-board",
+                            name: "maths-equivalent-examination-board"
                             }) }}
+                    
 
                          {{ govukInput({
                             label: {
                                 text: "Result"
                             },
-                            classes: "govuk-!-width-two-thirds",
+                            classes: "govuk-!-width-one-third",
                             id: "maths-equivalent-result",
                             name: "maths-equivalent-result"
+                            }) }}
+                        
+                        {{ govukInput({
+                            label: {
+                                text: "Year awarded"
+                            },
+                            classes: "govuk-input--width-4",
+                            id: "maths-equivalent-date",
+                            name: "maths-equivalent-date"
                             }) }}
                     
                 {% endcall %}
 
         {{ govukButton({
-            text: "Continue to add English GCSE"
+            text: "Add and continue to English GCSE equivalent"
             }) }}
     </form>
   </div>

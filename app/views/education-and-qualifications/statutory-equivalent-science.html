@@ -44,62 +44,49 @@
 
                     }) %}
 
-                    {{ govukDateInput({
-                        id: "gcse-science-date",
-                        namePrefix: "gcse-science-date",
-                        fieldset: {
-                            legend: {
-                            text: "Date you sat the exam",
-                            isPageHeading: true,
-                            classes: "govuk-fieldset__legend--m"
-                            }
-                        },
-                        hint: {
-                            text: "For example, 1 10 2013"
-                        },
-                        items: [
-
-                                {
-                                    name: "day",
-                                    value: data['gcse-science-date-day'],
-                                    classes: "govuk-input--width-2"
-                                },
-                                {
-                                    name: "month",
-                                    value: data['gcse-science-date-month'],
-                                    classes: "govuk-input--width-2"
-                                },
-                                {
-                                    name: "year",
-                                    value: data['gcse-science-date-year'],
-                                    classes: "govuk-input--width-4"
-                                }
-                            ]
-                        }) }}
-
-
+                    
+                    
                     {{ govukInput({
                         label: {
-                            text: "Examination board"
+                            text: "Name of qualification"
                         },
                             classes: "govuk-!-width-two-thirds",
                             id: "science-equivalent-examination-board",
                             name: "science-equivalent-examination-board"
                             }) }}
 
+                    {{ govukInput({
+                        label: {
+                            text: "Awarding organisation"
+                        },
+                            classes: "govuk-!-width-two-thirds",
+                            id: "science-equivalent-examination-board",
+                            name: "science-equivalent-examination-board"
+                            }) }}
+                    
+
                          {{ govukInput({
                             label: {
                                 text: "Result"
                             },
-                            classes: "govuk-!-width-two-thirds",
+                            classes: "govuk-!-width-one-third",
                             id: "science-equivalent-result",
                             name: "science-equivalent-result"
+                            }) }}
+                        
+                        {{ govukInput({
+                            label: {
+                                text: "Year awarded"
+                            },
+                            classes: "govuk-input--width-4",
+                            id: "science-equivalent-date",
+                            name: "science-equivalent-date"
                             }) }}
                     
                 {% endcall %}
 
         {{ govukButton({
-            text: "Continue to add Maths GCSE"
+            text: "Add and continue to Maths GCSE equivalent"
             }) }}
     </form>
   </div>
