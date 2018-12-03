@@ -16,7 +16,7 @@
           text: "Eligibility and qualifications"
         },
         {
-          text: "Add GCSEs or their equivalent "
+          text: "Add GCSEs (or equivalent) "
         }
         ]
     }) }}
@@ -27,7 +27,7 @@
 
 {% set missingGCSE %}
     <p>To find GCSE courses for people who are over 16 and have left school, visit the <a href='https://nationalcareersservice.direct.gov.uk/course-directory/home'>National Careers Service.</a></p>
-    <p>Some training providers organise ‘equivalency tests’ for applicants without the right GCSEs, to check they meet the necessary standard. To find out more, contact your chosen provider.</p>  
+    <p>Some training providers organise ‘equivalency tests’ for applicants without the right GCSEs, to check they meet the necessary standard. To find out more, contact your chosen provider.</p>
 {% endset %}
 
 
@@ -37,7 +37,7 @@
     <span class="govuk-caption-xl">
         Eligibility and qualifications
       </span>
-      Add GCSEs or their equivalent
+      Add GCSEs (or equivalent)
     </h1>
 
   </div>
@@ -46,10 +46,10 @@
   <div class="govuk-grid-column-two-thirds">
     <form action="/education-and-qualifications/statutory-gcse-science" method="post" class="form">
 
-            
+
                 <p>Start by adding the GCSEs you need to be eligible for teacher training:</p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>Maths, grade 4 (previously grade C)</li>
+                    <li>maths, grade 4 (previously grade C)</li>
                     <li>English, grade 4 (previously grade C)</li>
                 </ul>
 
@@ -96,12 +96,12 @@
                             }
                         ]
                         }) }}
-                
+
                 {% endcall %}
 
 
         {{ govukButton({
-            text: "Continue to GCSE or equivalent"
+            text: "Continue"
             }) }}
     </form>
   </div>

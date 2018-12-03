@@ -29,7 +29,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
     <span class="govuk-caption-xl">
-        Eligibility and qualifications (step 2 of 3)
+        Eligibility and qualifications
       </span>
       Add Maths GCSE equivalent
     </h1>
@@ -44,8 +44,8 @@
 
                     }) %}
 
-                    
-                    
+
+
                     {{ govukInput({
                         label: {
                             text: "Name of qualification"
@@ -63,7 +63,7 @@
                             id: "maths-equivalent-examination-board",
                             name: "maths-equivalent-examination-board"
                             }) }}
-                    
+
 
                          {{ govukInput({
                             label: {
@@ -73,7 +73,7 @@
                             id: "maths-equivalent-result",
                             name: "maths-equivalent-result"
                             }) }}
-                        
+
                         {{ govukInput({
                             label: {
                                 text: "Year awarded"
@@ -82,11 +82,11 @@
                             id: "maths-equivalent-date",
                             name: "maths-equivalent-date"
                             }) }}
-                    
+
                 {% endcall %}
 
         {{ govukButton({
-            text: "Add and continue to English GCSE equivalent"
+            text: "Save and continue"
             }) }}
     </form>
   </div>

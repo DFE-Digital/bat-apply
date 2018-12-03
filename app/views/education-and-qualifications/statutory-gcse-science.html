@@ -54,7 +54,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
     <span class="govuk-caption-xl">
-        Eligibility and qualifications (step 1 of 3)
+        Eligibility and qualifications
       </span>
       Add Science GCSE
     </h1>
@@ -73,7 +73,7 @@
                         namePrefix: "gcse-science-date",
                         fieldset: {
                             legend: {
-                            text: "Date you sat the exam",
+                            text: "Date of your result",
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--m"
                             }
@@ -116,7 +116,7 @@
                             name: "science-gcse-result",
                             fieldset: {
                                 legend: {
-                                text: "What was your result?",
+                                text: "Enter your grade",
                                 isPageHeading: false,
                                 classes: "govuk-fieldset__legend--m"
                                 }
@@ -138,11 +138,11 @@
                                 }
                             ]
                             }) }}
-                    
+
                 {% endcall %}
 
         {{ govukButton({
-            text: "Add and continue to Maths GCSE"
+            text: "Save and continue"
             }) }}
     </form>
   </div>
