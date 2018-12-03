@@ -34,6 +34,10 @@
         label: {
             text: "Other qualification"
         },
+        hint: {
+            text: "If you went to Cambridge, enter your four categories"
+        },
+         classes: "govuk-!-width-two-thirds",
         id: "other-qualification-detail",
         name: "other-qualification-detail"
         }) }}
@@ -53,7 +57,7 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="/your-application" method="post" class="form">           
+    <form action="gcse-or-equivalent" method="post" class="form">           
             {% call govukFieldset({
                 }) %}
 
@@ -126,7 +130,10 @@
                         },
                         {
                         value: "degree-other",
-                        text: "Other"
+                        text: "Other",
+                        conditional: {
+                            html : otherQualification
+                        }
                         }
                     ]
                     }) }}
@@ -143,14 +150,9 @@
                             }
                         },
                         hint: {
-                            text: "For example, 1 10 2013"
+                            text: "For example, 10 2013"
                         },
                         items: [
-                                {
-                                    name: "day",
-                                    value: data['degree-uk-start-date-day'],
-                                    classes: "govuk-input--width-2"
-                                },
                                 {
                                     name: "month",
                                     value: data['degree-uk-start-date-month'],
@@ -175,14 +177,9 @@
                             }
                         },
                         hint: {
-                            text: "For example, 1 6 2016"
+                            text: "For example, 6 2016"
                         },
                         items: [
-                                {
-                                    name: "day",
-                                    value: data['degree-uk-results-date-day'],
-                                    classes: "govuk-input--width-2"
-                                },
                                 {
                                     name: "month",
                                     value: data['degree-uk-results-date-month'],

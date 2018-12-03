@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "/your-application"
+        },
+        {
+          text: "Eligibility and qualifications"
+        },
+        {
+          text: "Add Maths GCSE equivalent"
+        }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+    <span class="govuk-caption-xl">
+        Eligibility and qualifications (step 2 of 3)
+      </span>
+      Add Maths GCSE equivalent
+    </h1>
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/education-and-qualifications/statutory-equivalent-english" method="post" class="form">
+
+                {% call govukFieldset({
+
+                    }) %}
+
+                    
+                    
+                    {{ govukInput({
+                        label: {
+                            text: "Name of qualification"
+                        },
+                            classes: "govuk-!-width-two-thirds",
+                            id: "maths-equivalent-examination-board",
+                            name: "maths-equivalent-examination-board"
+                            }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Awarding organisation"
+                        },
+                            classes: "govuk-!-width-two-thirds",
+                            id: "maths-equivalent-examination-board",
+                            name: "maths-equivalent-examination-board"
+                            }) }}
+                    
+
+                         {{ govukInput({
+                            label: {
+                                text: "Result"
+                            },
+                            classes: "govuk-!-width-one-third",
+                            id: "maths-equivalent-result",
+                            name: "maths-equivalent-result"
+                            }) }}
+                        
+                        {{ govukInput({
+                            label: {
+                                text: "Year awarded"
+                            },
+                            classes: "govuk-input--width-4",
+                            id: "maths-equivalent-date",
+                            name: "maths-equivalent-date"
+                            }) }}
+                    
+                {% endcall %}
+
+        {{ govukButton({
+            text: "Add and continue to English GCSE equivalent"
+            }) }}
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h3 class="govuk-heading-s">Guidance and links</h3>
+    <p><a href="guidance">Guidance to support this service </a></p>
+  </div>
+</div>
+</div>
+
+{% endblock %}

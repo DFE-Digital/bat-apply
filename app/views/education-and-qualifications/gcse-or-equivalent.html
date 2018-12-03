@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "/your-application"
+        },
+        {
+          text: "Eligibility and qualifications"
+        },
+        {
+          text: "Add GCSEs or their equivalent "
+        }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% set missingGCSE %}
+    <p>To find GCSE courses for people who are over 16 and have left school, visit the <a href='https://nationalcareersservice.direct.gov.uk/course-directory/home'>National Careers Service.</a></p>
+    <p>Some training providers organise ‘equivalency tests’ for applicants without the right GCSEs, to check they meet the necessary standard. To find out more, contact your chosen provider.</p>  
+{% endset %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+    <span class="govuk-caption-xl">
+        Eligibility and qualifications
+      </span>
+      Add GCSEs or their equivalent
+    </h1>
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/education-and-qualifications/statutory-gcse-science" method="post" class="form">
+
+            
+                <p>Start by adding the GCSEs you need to be eligible for teacher training:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Maths, grade 4 (previously grade C)</li>
+                    <li>English, grade 4 (previously grade C)</li>
+                </ul>
+
+                {% call govukFieldset({
+                }) %}
+                    <p>If you want to teach primary, you should also add a Science GCSE, grade 4 (previously grade C)</p>
+                    {{ govukCheckboxes({
+                        idPrefix: "teach-primary",
+                        name: "teach-primary",
+                        items: [
+                            {
+                                value: "yes",
+                                text: "I want to teach primary"
+                            }
+                        ]
+                    }) }}
+                    {{ govukDetails({
+                    summaryText: "I am missing a required GCSE",
+                        html: missingGCSE
+                    }) }}
+
+                    {{ govukRadios({
+                        classes: "govuk-radios",
+                        idPrefix: "gcse-or-equivalent",
+                        name: "gcse-or-equivalent",
+                        fieldset: {
+                            legend: {
+                            text: "Choose the qualification you want to enter",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m"
+                            }
+                        },
+                        items: [
+                            {
+                            value: "gcse",
+                            text: "GCSE"
+                            },
+                            {
+                            value: "equivalent",
+                            text: "GCSE equivalent",
+                            hint: {
+                                text: "For example, an O level or international qualification"
+                            }
+                            }
+                        ]
+                        }) }}
+                
+                {% endcall %}
+
+
+        {{ govukButton({
+            text: "Continue to GCSE or equivalent"
+            }) }}
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h3 class="govuk-heading-s">Guidance and links</h3>
+    <p><a href="guidance">Guidance to support this service </a></p>
+  </div>
+</div>
+</div>
+
+{% endblock %}
