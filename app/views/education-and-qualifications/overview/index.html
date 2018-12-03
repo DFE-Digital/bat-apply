@@ -1,0 +1,338 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+    <span class="govuk-caption-l">Eligibility and qualifications</span>
+      Your qualifications
+    </h1>
+
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+        
+        {# <div class="apply-qualification">
+          <h3 class="govuk-heading-s">
+            <a href="#">B.A (hons) Digital Media Production</a>
+          </h3>
+            <dl class="app-check-your-answers app-check-your-answers--long">
+                <div class="app-check-your-answers__contents"> 
+                    <dt class="app-check-your-answers__question govuk-body-s">University or college</dt>
+                    <dd class="app-check-your-answers__answer govuk-body-s">London College of Communication</dd>   
+                    <dd class="app-check-your-answers__change">
+                        <a href="#" class="govuk-body-s">Edit</a>      
+                    </dd>
+                </div>
+                <div class="app-check-your-answers__contents"> 
+                    <dt class="app-check-your-answers__question govuk-body-s">Degree class</dt>
+                    <dd class="app-check-your-answers__answer govuk-body-s">Upper second class</dd>   
+                    <dd class="app-check-your-answers__change">
+                        <a href="#" class="govuk-body-s">Edit</a>      
+                    </dd>
+                </div>
+                <div class="app-check-your-answers__contents"> 
+                    <dt class="app-check-your-answers__question govuk-body-s">Degree type</dt>
+                    <dd class="app-check-your-answers__answer govuk-body-s">Degree</dd>   
+                    <dd class="app-check-your-answers__change">
+                        <a href="#" class="govuk-body-s">Edit</a>      
+                    </dd>
+                </div>
+                <div class="app-check-your-answers__contents"> 
+                    <dt class="app-check-your-answers__question govuk-body-s">Start date</dt>
+                    <dd class="app-check-your-answers__answer govuk-body-s">09, 2016</dd>   
+                    <dd class="app-check-your-answers__change">
+                        <a href="#" class="govuk-body-s">Edit</a>      
+                    </dd>
+                </div>
+                <div class="app-check-your-answers__contents"> 
+                    <dt class="app-check-your-answers__question govuk-body-s">Result date</dt>
+                    <dd class="app-check-your-answers__answer govuk-body-s">06, 2019</dd>   
+                    <dd class="app-check-your-answers__change">
+                        <a href="#" class="govuk-body-s">Edit</a>      
+                    </dd>
+                </div>
+            </dl>
+        </div> #}
+        <div class="apply-qualification-list">
+            <h2 class="govuk-heading-l">
+                Degree
+            </h2>
+            <div class="apply-qualification">
+                    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+                        <a href="#">International Relations, Government and Society</a>
+                    </h3>
+                    {{ govukTable({
+                        firstCellIsHeader: false,
+                        head: [
+                            {
+                            text: "University or college",
+                            classes : "govuk-body-s"
+                            },
+                            {
+                            text: "Degree class",
+                            classes : "govuk-body-s"
+                            },
+
+                            {
+                            text: "Degree type",
+                            classes : "govuk-body-s"
+                            },
+
+                            {
+                            text: "Start date",
+                            classes : "govuk-body-s"
+                            },
+                            {
+                            text: "Result date	",
+                            classes : "govuk-body-s"
+                            }
+                        ],
+                        rows: [
+                            [
+                            {
+                                text: "London School of Economics and Political Science",
+                            classes : "govuk-body-s"
+                            },
+                            {
+                                text: "Upper second",
+                            classes : "govuk-body-s"
+                            },
+                            {
+                                text: "Undergraduate",
+                            classes : "govuk-body-s"
+                            },
+                            {
+                                text: "	09, 2016",
+                            classes : "govuk-body-s"
+                            },
+                            {
+                                text: "	06, 2019",
+                            classes : "govuk-body-s"
+                            }
+                            ]
+                        ]
+                        }) }}
+                        <button type="submit" class="govuk-button apply-add govuk-!-margin-bottom-9">
+                            Add another Degree
+                        </button>
+            </div>
+            <div class="apply-qualification">
+                <h2 class="govuk-heading-l">
+                    GCSEs and equivalents
+                </h2>
+                    {{ govukTable({
+                        firstCellIsHeader: true,
+                        head: [
+                             {
+                            text: "Qualification",
+                            classes : "govuk-body-s"
+                            },
+                            {
+                            text: "Subject",
+                            classes : "govuk-body-s"
+                            },
+                            {
+                            text: "Result",
+                            classes : "govuk-body-s"
+                            },
+
+                            {
+                            text: "Date",
+                            classes : "govuk-body-s"
+                            },
+
+                            {
+                            text: "Examination board",
+                            classes : "govuk-body-s"
+                            }
+                        ],
+                        rows: [
+                            [
+                                {
+                                text: "GCSE",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                html: "<a href='#'>English</a>",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "A*",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "09, 2018",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "	Edexcel",
+                                classes : "govuk-body-s"
+                            }
+                            ],
+                            [
+                                {
+                                text: "GCSE",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                html: "<a href='#'>Maths</a>",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "C",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "09, 2018",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "	Edexcel",
+                                classes : "govuk-body-s"
+                            }
+                            ],
+                            [
+                                {
+                                text: "GCSE",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                html: "<a href='#'>Science</a>",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "A*",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "09, 2018",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "	Edexcel",
+                                classes : "govuk-body-s"
+                            }
+                            ]
+                        ]
+                        }) }}
+                        <button type="submit" class="govuk-button apply-add govuk-!-margin-bottom-9">
+                            Add another GCSE
+                        </button>
+            </div>
+            <div class="apply-qualification">
+                <h2 class="govuk-heading-l">
+                    A levels and other qualifications
+                </h2>
+                    {{ govukTable({
+                        firstCellIsHeader: true,
+                        head: [
+                             {
+                            text: "Qualification",
+                            classes : "govuk-body-s"
+                            },
+                            {
+                            text: "Subject",
+                            classes : "govuk-body-s"
+                            },
+                            {
+                            text: "Result",
+                            classes : "govuk-body-s"
+                            },
+
+                            {
+                            text: "Date",
+                            classes : "govuk-body-s"
+                            },
+
+                            {
+                            text: "Examination board",
+                            classes : "govuk-body-s"
+                            }
+                        ],
+                        rows: [
+                            [
+                                {
+                                text: "A level",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                html: "<a href='#'>English</a>",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "A*",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "09, 2018",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "	Edexcel",
+                                classes : "govuk-body-s"
+                            }
+                            ],
+                            [
+                                {
+                                text: "BTEC",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                html: "<a href='#'>Maths</a>",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "C",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "09, 2018",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "	Edexcel",
+                                classes : "govuk-body-s"
+                            }
+                            ],
+                            [
+                                {
+                                text: "International Baccalaureate",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                html: "<a href='#'>Science</a>",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "A*",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "09, 2018",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "	Edexcel",
+                                classes : "govuk-body-s"
+                            }
+                            ]
+                        ]
+                        }) }}
+                        <button type="submit" class="govuk-button apply-add">
+                            Add another qualification
+                        </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
