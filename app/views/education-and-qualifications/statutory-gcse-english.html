@@ -29,7 +29,7 @@
 
         {{ govukInput({
             label: {
-                text: "A-G Result"
+                text: ""
             },
             classes: "govuk-input--width-2",
             id: "english-gcse-result",
@@ -41,7 +41,7 @@
 
         {{ govukInput({
             label: {
-                text: "1-9 Result"
+                text: ""
             },
             classes: "govuk-input--width-2",
             id: "english-gcse-result",
@@ -54,7 +54,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
     <span class="govuk-caption-xl">
-        Eligibility and qualifications (step 3 of 3)
+        Eligibility and qualifications
       </span>
       Add English GCSE
     </h1>
@@ -139,11 +139,11 @@
                                 }
                             ]
                             }) }}
-                    
+
                 {% endcall %}
 
         {{ govukButton({
-            text: "Add and continue to overview"
+            text: "Save and continue"
             }) }}
     </form>
   </div>

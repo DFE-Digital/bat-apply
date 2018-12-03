@@ -29,7 +29,7 @@
 
         {{ govukInput({
             label: {
-                text: "A-G Result"
+                text: ""
             },
             classes: "govuk-input--width-2",
             id: "english-gcse-result",
@@ -41,7 +41,7 @@
 
         {{ govukInput({
             label: {
-                text: "1-9 Result"
+                text: ""
             },
             classes: "govuk-input--width-2",
             id: "english-gcse-result",
@@ -65,7 +65,7 @@
   <div class="govuk-grid-column-two-thirds">
     <form action="/education-and-qualifications/statutory-gcse-science" method="post" class="form">
 
-            
+
                 <p>Start by adding the GCSEs you need to be eligible for teacher training:</p>
                 <ul class="govuk-list govuk-list--bullet">
                     <li>Maths, grade 4 (previously grade C)</li>
@@ -123,7 +123,7 @@
                             id: "maths-gcse-examination-board",
                             name: "maths-gcse-examination-board"
                             }) }}
-                    
+
                     {{ govukInput({
                         label: {
                             text: "Result"
@@ -133,8 +133,8 @@
                         name: "maths-gcse-result"
                         }) }}
 
-                   
-                    
+
+
                 {% endcall %}
 
                 {% call govukFieldset({
@@ -188,8 +188,8 @@
                             id: "english-gcse-examination-board",
                             name: "english-gcse-examination-board"
                             }) }}
-                    
-                    
+
+
                     {{ govukInput({
                         label: {
                             text: "Result"
@@ -226,7 +226,7 @@
                                 }
                             ]
                             }) }}
-                    
+
                 {% endcall %}
 
                 {% call govukFieldset({
@@ -280,7 +280,7 @@
                             id: "science-gcse-examination-board",
                             name: "science-gcse-examination-board"
                             }) }}
-                    
+
                     {{ govukInput({
                         label: {
                             text: "Result"
@@ -289,7 +289,7 @@
                         id: "science-gcse-result",
                         name: "science-gcse-result"
                         }) }}
-                    
+
                 {% endcall %}
 
 

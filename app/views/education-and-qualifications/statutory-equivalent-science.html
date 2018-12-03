@@ -48,7 +48,7 @@
 
                     {{ govukInput({
                         label: {
-                            text: "Name of qualification"
+                            text: "Type of qualification"
                         },
                             classes: "govuk-!-width-two-thirds",
                             id: "science-equivalent-examination-board",
@@ -67,7 +67,7 @@
 
                          {{ govukInput({
                             label: {
-                                text: "Result"
+                                text: "Grade"
                             },
                             classes: "govuk-!-width-one-third",
                             id: "science-equivalent-result",
@@ -76,7 +76,7 @@
 
                         {{ govukInput({
                             label: {
-                                text: "Year awarded"
+                                text: "Year grade was awarded"
                             },
                             classes: "govuk-input--width-4",
                             id: "science-equivalent-date",
@@ -86,7 +86,7 @@
                 {% endcall %}
 
         {{ govukButton({
-            text: "Add and continue to Maths GCSE equivalent"
+            text: "Save and continue"
             }) }}
     </form>
   </div>
