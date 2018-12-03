@@ -29,7 +29,7 @@
 
         {{ govukInput({
             label: {
-                text: ""
+               html: '<span class="govuk-visually-hidden">Grade</span>'
             },
             classes: "govuk-input--width-2",
             id: "maths-gcse-result",
@@ -41,7 +41,7 @@
 
         {{ govukInput({
             label: {
-                text: ""
+               html: '<span class="govuk-visually-hidden">Grade</span>'
             },
             classes: "govuk-input--width-2",
             id: "maths-gcse-result",
@@ -79,15 +79,9 @@
                             }
                         },
                         hint: {
-                            text: "For example, 1 10 2013"
+                            text: "For example, 10 2013"
                         },
                         items: [
-
-                                {
-                                    name: "day",
-                                    value: data['gcse-maths-date-day'],
-                                    classes: "govuk-input--width-2"
-                                },
                                 {
                                     name: "month",
                                     value: data['gcse-maths-date-month'],
@@ -100,16 +94,6 @@
                                 }
                             ]
                         }) }}
-
-
-                    {{ govukInput({
-                        label: {
-                            text: "Examination board"
-                        },
-                            classes: "govuk-!-width-two-thirds",
-                            id: "maths-gcse-examination-board",
-                            name: "maths-gcse-examination-board"
-                            }) }}
 
                         {{ govukRadios({
                             idPrefix: "maths-gcse-result",
@@ -137,6 +121,15 @@
                                 }
                                 }
                             ]
+                            }) }}
+
+                        {{ govukInput({
+                        label: {
+                            text: "Examination board"
+                        },
+                            classes: "govuk-!-width-two-thirds",
+                            id: "maths-gcse-examination-board",
+                            name: "maths-gcse-examination-board"
                             }) }}
 
                 {% endcall %}

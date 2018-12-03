@@ -29,7 +29,7 @@
 
         {{ govukInput({
             label: {
-                text: ""
+                html: '<span class="govuk-visually-hidden">Grade</span>'
             },
             classes: "govuk-input--width-2",
             id: "english-gcse-result",
@@ -41,7 +41,7 @@
 
         {{ govukInput({
             label: {
-                text: ""
+                html: '<span class="govuk-visually-hidden">Grade</span>'
             },
             classes: "govuk-input--width-2",
             id: "english-gcse-result",
@@ -80,15 +80,9 @@
                             }
                         },
                         hint: {
-                            text: "For example, 1 10 2013"
+                            text: "For example, 10 2013"
                         },
                         items: [
-
-                                {
-                                    name: "day",
-                                    value: data['gcse-english-date-day'],
-                                    classes: "govuk-input--width-2"
-                                },
                                 {
                                     name: "month",
                                     value: data['gcse-english-date-month'],
@@ -101,16 +95,6 @@
                                 }
                             ]
                         }) }}
-
-
-                    {{ govukInput({
-                        label: {
-                            text: "Examination board"
-                        },
-                            classes: "govuk-!-width-two-thirds",
-                            id: "english-gcse-examination-board",
-                            name: "english-gcse-examination-board"
-                            }) }}
 
                         {{ govukRadios({
                             idPrefix: "english-gcse-result",
@@ -140,6 +124,15 @@
                             ]
                             }) }}
 
+                             {{ govukInput({
+                                label: {
+                                    text: "Examination board"
+                                },
+                                    classes: "govuk-!-width-two-thirds",
+                                    id: "english-gcse-examination-board",
+                                    name: "english-gcse-examination-board"
+                                    }) }}
+                        
                 {% endcall %}
 
         {{ govukButton({
