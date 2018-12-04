@@ -39,121 +39,75 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
         
-        {# <div class="apply-qualification">
-          <h3 class="govuk-heading-s">
-            <a href="#">B.A (hons) Digital Media Production</a>
-          </h3>
-            <dl class="app-check-your-answers app-check-your-answers--long">
-                <div class="app-check-your-answers__contents"> 
-                    <dt class="app-check-your-answers__question govuk-body-s">University or college</dt>
-                    <dd class="app-check-your-answers__answer govuk-body-s">London College of Communication</dd>   
-                    <dd class="app-check-your-answers__change">
-                        <a href="#" class="govuk-body-s">Edit</a>      
-                    </dd>
-                </div>
-                <div class="app-check-your-answers__contents"> 
-                    <dt class="app-check-your-answers__question govuk-body-s">Degree class</dt>
-                    <dd class="app-check-your-answers__answer govuk-body-s">Upper second class</dd>   
-                    <dd class="app-check-your-answers__change">
-                        <a href="#" class="govuk-body-s">Edit</a>      
-                    </dd>
-                </div>
-                <div class="app-check-your-answers__contents"> 
-                    <dt class="app-check-your-answers__question govuk-body-s">Degree type</dt>
-                    <dd class="app-check-your-answers__answer govuk-body-s">Degree</dd>   
-                    <dd class="app-check-your-answers__change">
-                        <a href="#" class="govuk-body-s">Edit</a>      
-                    </dd>
-                </div>
-                <div class="app-check-your-answers__contents"> 
-                    <dt class="app-check-your-answers__question govuk-body-s">Start date</dt>
-                    <dd class="app-check-your-answers__answer govuk-body-s">09, 2016</dd>   
-                    <dd class="app-check-your-answers__change">
-                        <a href="#" class="govuk-body-s">Edit</a>      
-                    </dd>
-                </div>
-                <div class="app-check-your-answers__contents"> 
-                    <dt class="app-check-your-answers__question govuk-body-s">Result date</dt>
-                    <dd class="app-check-your-answers__answer govuk-body-s">06, 2019</dd>   
-                    <dd class="app-check-your-answers__change">
-                        <a href="#" class="govuk-body-s">Edit</a>      
-                    </dd>
-                </div>
-            </dl>
-        </div> #}
         <div class="apply-qualification-list">
-            <h2 class="govuk-heading-m">
-                Degree
-            </h2>
             <div class="apply-qualification">
                     {{ govukTable({
-                        firstCellIsHeader: false,
-                        head: [
-                            {
-                            text: "Course name",
-                            classes : "govuk-body-s"
-                            },
-                            {
-                            text: "University or college",
-                            classes : "govuk-body-s"
-                            },
-                            {
-                            text: "Degree class",
-                            classes : "govuk-body-s"
-                            },
+                            caption : "Degree",
+                            captionClasses : "govuk-heading-m govuk-!-margin-bottom-0",
+                            firstCellIsHeader: false,
+                            head: [
+                                {
+                                text: "Course name",
+                                classes : "govuk-body-s"
+                                },
+                                {
+                                text: "University or college",
+                                classes : "govuk-body-s"
+                                },
+                                {
+                                text: "Degree class",
+                                classes : "govuk-body-s"
+                                },
 
-                            {
-                            text: "Degree type",
-                            classes : "govuk-body-s"
-                            },
+                                {
+                                text: "Degree type",
+                                classes : "govuk-body-s"
+                                },
 
-                            {
-                            text: "Start date",
-                            classes : "govuk-body-s"
-                            },
-                            {
-                            text: "Result date	",
-                            classes : "govuk-body-s"
-                            }
-                        ],
-                        rows: [
-                            [
-                            {
-                                html: "<a href='#'>International Relations, Government and Society</a>",
+                                {
+                                text: "Start date",
                                 classes : "govuk-body-s"
-                            },
-                            {
-                                text: "London School of Economics and Political Science",
+                                },
+                                {
+                                text: "Result date	",
                                 classes : "govuk-body-s"
-                            },
-                            {
-                                text: "Upper second",
-                                classes : "govuk-body-s"
-                            },
-                            {
-                                text: "Undergraduate",
-                                classes : "govuk-body-s"
-                            },
-                            {
-                                text: "	09, 2016",
-                                classes : "govuk-body-s"
-                            },
-                            {
-                                text: "	06, 2019",
-                                classes : "govuk-body-s"
-                            }
+                                }
+                            ],
+                            rows: [
+                                [
+                                {
+                                    html: "<a href='#'>International Relations, Government and Society</a>",
+                                    classes : "govuk-body-s"
+                                },
+                                {
+                                    text: "London School of Economics and Political Science",
+                                    classes : "govuk-body-s"
+                                },
+                                {
+                                    text: "Upper second",
+                                    classes : "govuk-body-s"
+                                },
+                                {
+                                    text: "Undergraduate",
+                                    classes : "govuk-body-s"
+                                },
+                                {
+                                    text: "	09, 2016",
+                                    classes : "govuk-body-s"
+                                },
+                                {
+                                    text: "	06, 2019",
+                                    classes : "govuk-body-s"
+                                }
+                                ]
                             ]
-                        ]
-                        }) }}
-                        <button type="submit" class="govuk-button apply-add govuk-!-margin-bottom-9">
-                            Add another Degree
-                        </button>
+                            }) }}
+                    <a href="add-degree" class="govuk-button apply-add govuk-!-margin-bottom-9">Add another Degree</a>
             </div>
             <div class="apply-qualification">
-                <h2 class="govuk-heading-m">
-                    GCSEs and equivalents
-                </h2>
                     {{ govukTable({
+                        caption: "GCSEs and equivalents",
+                        captionClasses : "govuk-heading-m govuk-!-margin-bottom-0",
                         firstCellIsHeader: false,
                         head: [
 
@@ -275,15 +229,12 @@
                             ]
                         ]
                         }) }}
-                        <button type="submit" class="govuk-button apply-add govuk-!-margin-bottom-9">
-                            Add another GCSE
-                        </button>
+                    <a href="add-gcse" class="govuk-button apply-add govuk-!-margin-bottom-9">Add another GCSE</a>
             </div>
             <div class="apply-qualification">
-                <h2 class="govuk-heading-m">
-                    A levels and other qualifications
-                </h2>
                     {{ govukTable({
+                        caption : "A levels and other qualifications",
+                        captionClasses : "govuk-heading-m govuk-!-margin-bottom-0",
                         firstCellIsHeader: false,
                         head: [
 
@@ -364,7 +315,7 @@
                                 classes : "govuk-body-s"
                             },
                                 {
-                                text: "Foundation Diploma in Art and Design",
+                                text: "BTEC Foundation Diploma in Art and Design",
                                 classes : "govuk-body-s"
                             },
                             {
@@ -382,9 +333,7 @@
                             ]
                         ]
                         }) }}
-                        <button type="submit" class="govuk-button apply-add">
-                            Add another qualification
-                        </button>
+                    <a href="add-other-qualification" class="govuk-button apply-add">Add another qualification</a>
             </div>
         </div>
     </div>
