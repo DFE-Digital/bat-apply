@@ -4,6 +4,25 @@
   GOV.UK Prototype Kit
 {% endblock %}
 
+{% block beforeContent %}
+
+    {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "/your-application"
+        },
+        {
+          text: "Eligibility and qualifications"
+        },
+        {
+          text: "Your qualifications"
+        }
+        ]
+    }) }}
+
+{% endblock %}
+
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -63,16 +82,17 @@
             </dl>
         </div> #}
         <div class="apply-qualification-list">
-            <h2 class="govuk-heading-l">
+            <h2 class="govuk-heading-m">
                 Degree
             </h2>
             <div class="apply-qualification">
-                    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
-                        <a href="#">International Relations, Government and Society</a>
-                    </h3>
                     {{ govukTable({
                         firstCellIsHeader: false,
                         head: [
+                            {
+                            text: "Course name",
+                            classes : "govuk-body-s"
+                            },
                             {
                             text: "University or college",
                             classes : "govuk-body-s"
@@ -99,24 +119,28 @@
                         rows: [
                             [
                             {
+                                html: "<a href='#'>International Relations, Government and Society</a>",
+                                classes : "govuk-body-s"
+                            },
+                            {
                                 text: "London School of Economics and Political Science",
-                            classes : "govuk-body-s"
+                                classes : "govuk-body-s"
                             },
                             {
                                 text: "Upper second",
-                            classes : "govuk-body-s"
+                                classes : "govuk-body-s"
                             },
                             {
                                 text: "Undergraduate",
-                            classes : "govuk-body-s"
+                                classes : "govuk-body-s"
                             },
                             {
                                 text: "	09, 2016",
-                            classes : "govuk-body-s"
+                                classes : "govuk-body-s"
                             },
                             {
                                 text: "	06, 2019",
-                            classes : "govuk-body-s"
+                                classes : "govuk-body-s"
                             }
                             ]
                         ]
@@ -126,18 +150,19 @@
                         </button>
             </div>
             <div class="apply-qualification">
-                <h2 class="govuk-heading-l">
+                <h2 class="govuk-heading-m">
                     GCSEs and equivalents
                 </h2>
                     {{ govukTable({
-                        firstCellIsHeader: true,
+                        firstCellIsHeader: false,
                         head: [
-                             {
-                            text: "Qualification",
-                            classes : "govuk-body-s"
-                            },
+
                             {
                             text: "Subject",
+                            classes : "govuk-body-s"
+                            },
+                             {
+                            text: "Qualification",
                             classes : "govuk-body-s"
                             },
                             {
@@ -157,12 +182,13 @@
                         ],
                         rows: [
                             [
-                                {
-                                text: "GCSE",
-                                classes : "govuk-body-s"
-                            },
+
                             {
                                 html: "<a href='#'>English</a>",
+                                classes : "govuk-body-s"
+                            },
+                                {
+                                text: "GCSE",
                                 classes : "govuk-body-s"
                             },
                             {
@@ -179,12 +205,13 @@
                             }
                             ],
                             [
-                                {
-                                text: "GCSE",
-                                classes : "govuk-body-s"
-                            },
+
                             {
                                 html: "<a href='#'>Maths</a>",
+                                classes : "govuk-body-s"
+                            },
+                                {
+                                text: "GCSE",
                                 classes : "govuk-body-s"
                             },
                             {
@@ -201,12 +228,13 @@
                             }
                             ],
                             [
-                                {
-                                text: "GCSE",
-                                classes : "govuk-body-s"
-                            },
+
                             {
                                 html: "<a href='#'>Science</a>",
+                                classes : "govuk-body-s"
+                            },
+                                {
+                                text: "GCSE",
                                 classes : "govuk-body-s"
                             },
                             {
@@ -219,6 +247,29 @@
                             },
                             {
                                 text: "	Edexcel",
+                                classes : "govuk-body-s"
+                            }
+                            ],
+                             [
+
+                            {
+                                html: "<a href='#'>Expressive Arts</a>",
+                                classes : "govuk-body-s"
+                            },
+                                {
+                                text: "Scottish Baccalaureate",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "1",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "09, 2018",
+                                classes : "govuk-body-s"
+                            },
+                            {
+                                text: "	SQA",
                                 classes : "govuk-body-s"
                             }
                             ]
@@ -229,18 +280,19 @@
                         </button>
             </div>
             <div class="apply-qualification">
-                <h2 class="govuk-heading-l">
+                <h2 class="govuk-heading-m">
                     A levels and other qualifications
                 </h2>
                     {{ govukTable({
-                        firstCellIsHeader: true,
+                        firstCellIsHeader: false,
                         head: [
-                             {
-                            text: "Qualification",
-                            classes : "govuk-body-s"
-                            },
+
                             {
                             text: "Subject",
+                            classes : "govuk-body-s"
+                            },
+                             {
+                            text: "Qualification",
                             classes : "govuk-body-s"
                             },
                             {
@@ -260,12 +312,13 @@
                         ],
                         rows: [
                             [
-                                {
-                                text: "A level",
-                                classes : "govuk-body-s"
-                            },
+
                             {
                                 html: "<a href='#'>English</a>",
+                                classes : "govuk-body-s"
+                            },
+                                {
+                                text: "A level",
                                 classes : "govuk-body-s"
                             },
                             {
@@ -282,12 +335,13 @@
                             }
                             ],
                             [
-                                {
-                                text: "BTEC",
-                                classes : "govuk-body-s"
-                            },
+
                             {
                                 html: "<a href='#'>Maths</a>",
+                                classes : "govuk-body-s"
+                            },
+                                {
+                                text: "BTEC",
                                 classes : "govuk-body-s"
                             },
                             {
@@ -304,16 +358,17 @@
                             }
                             ],
                             [
+
+                            {
+                                html: "<a href='#'>3-Dimensional Design and Architecture</a>",
+                                classes : "govuk-body-s"
+                            },
                                 {
-                                text: "International Baccalaureate",
+                                text: "Foundation Diploma in Art and Design",
                                 classes : "govuk-body-s"
                             },
                             {
-                                html: "<a href='#'>Science</a>",
-                                classes : "govuk-body-s"
-                            },
-                            {
-                                text: "A*",
+                                text: "Distinction",
                                 classes : "govuk-body-s"
                             },
                             {
