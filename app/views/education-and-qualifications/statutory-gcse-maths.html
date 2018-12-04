@@ -67,6 +67,17 @@
                 {% call govukFieldset({
 
                     }) %}
+                    {{ govukCheckboxes({
+                        idPrefix: "no-maths-gcse",
+                        name: "no-maths-gcse",
+                        items: [
+                            {
+                                value: "yes",
+                                text: "I do not have this qualification yet"
+                            }
+                        ],  
+                        hint : "test"
+                    }) }}
 
                     {{ govukDateInput({
                         id: "gcse-maths-date",

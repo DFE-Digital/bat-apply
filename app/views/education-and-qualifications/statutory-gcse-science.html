@@ -68,6 +68,18 @@
 
                     }) %}
 
+                    {{ govukCheckboxes({
+                        idPrefix: "no-science-gcse",
+                        name: "no-science-gcse",
+                        items: [
+                            {
+                                value: "yes",
+                                text: "I do not have this qualification yet"
+                            }
+                        ],  
+                        hint : "test"
+                    }) }}
+
                     {{ govukDateInput({
                         id: "gcse-science-date",
                         namePrefix: "gcse-science-date",
