@@ -24,6 +24,157 @@
 {% endblock %}
 
 {% block content %}
+
+    {% set highestUK %}
+         {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "highest-qualification-uk",
+            name: "highest-qualification-uk",
+            fieldset: {
+                legend: {
+                text: "choose your highest qualification",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+                }
+            },
+            items: [
+                {
+                    value: "Degree (PhD)",
+                    text: "Degree (PhD)"
+                },
+                {
+                    value: "Degree (Masters)",
+                    text: "Degree (Masters)"
+                },
+                {
+                    value: "Degree (Bachelor - Honours)",
+                    text: "Degree (Bachelor - Honours)"
+                },
+                {
+                    value: "Degree (Bachelor - Ordinary)",
+                    text: "Degree (Bachelor - Ordinary)"
+                },
+                {
+                    value: "Postgraduate Certificate in Education",
+                    text: "Postgraduate Certificate in Education"
+                },
+                {
+                    value: "Professional Graduate Certificate in Education",
+                    text: "Professional Graduate Certificate in Education"
+                }
+            ]
+            }) }}
+    {% endset %}
+    {% set highestEU %}
+        {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "highest-qualification-eu",
+            name: "highest-qualification-eu",
+            fieldset: {
+                legend: {
+                text: "choose your highest qualification",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+                }
+            },
+            items: [
+                {
+                    value: "Degree (Bachelor)",
+                    text: "Degree (Bachelor)"
+                },
+                {
+                    value: "Degree (Masters)",
+                    text: "Degree (Masters)"
+                },
+                {
+                    value: "Degree (PhD)",
+                    text: "Degree (PhD)"
+                }
+            ]
+            }) }}
+    {% endset %}
+    {% set highestInternational %}
+        {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "highest-qualification-international",
+            name: "highest-qualification-international",
+            fieldset: {
+                legend: {
+                text: "choose your highest qualification",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+                }
+            },
+            items: [
+                {
+                    value: "Postgraduate Certificate of Education",
+                    text: "Postgraduate Certificate of Education"
+                },
+                {
+                    value: "Postgraduate Diploma in Education",
+                    text: "Postgraduate Diploma in Education"
+                }
+            ]
+            }) }}
+    {% endset %}
+    {% set highestInternationalNonEU %}
+        {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "highest-qualification-international-non-eu",
+            name: "highest-qualification-international-non-eu",
+            fieldset: {
+                legend: {
+                text: "choose your highest qualification",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+                }
+            },
+            items: [
+                {
+                    value: "Degree (Bachelor)",
+                    text: "Degree (Bachelor)"
+                },
+                {
+                    value: " Degree (Masters)",
+                    text: " Degree (Masters)"
+                },
+                {
+                    value: " Degree",
+                    text: " Degree"
+                },
+                {
+                    value: " Degree (PhD)",
+                    text: " Degree (PhD)"
+                }
+            ]
+            }) }}
+    {% endset %}
+    {% set highestScottish %}
+            {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "highest-qualification-scottish",
+            name: "highest-qualification-scottish",
+            fieldset: {
+                legend: {
+                text: "choose your highest qualification",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+                }
+            },
+            items: [
+                {
+                    value: " Professional Graduate Diploma of Education",
+                    text: " Professional Graduate Diploma of Education"
+                },
+                {
+                    value: "Postgraduate Diploma in Education",
+                    text: "Postgraduate Diploma in Education"
+                }
+            ]
+            }) }}
+    {% endset %}
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
@@ -57,25 +208,23 @@
                                 classes : "govuk-body-s"
                                 },
                                 {
-                                text: "University or college",
+                                text: "Degree type",
                                 classes : "govuk-body-s"
                                 },
                                 {
                                 text: "Degree class",
                                 classes : "govuk-body-s"
                                 },
-
-                                {
-                                text: "Degree type",
-                                classes : "govuk-body-s"
-                                },
-
                                 {
                                 text: "Start date",
                                 classes : "govuk-body-s"
                                 },
                                 {
                                 text: "Result date	",
+                                classes : "govuk-body-s"
+                                },
+                                {
+                                text: "University or college",
                                 classes : "govuk-body-s"
                                 }
                             ],
@@ -86,15 +235,11 @@
                                     classes : "govuk-body-s"
                                 },
                                 {
-                                    text: "London School of Economics and Political Science",
+                                    text: "Undergraduate",
                                     classes : "govuk-body-s"
                                 },
                                 {
                                     text: "Upper second",
-                                    classes : "govuk-body-s"
-                                },
-                                {
-                                    text: "Undergraduate",
                                     classes : "govuk-body-s"
                                 },
                                 {
@@ -103,6 +248,10 @@
                                 },
                                 {
                                     text: "	06, 2019",
+                                    classes : "govuk-body-s"
+                                },
+                                {
+                                    text: "London School of Economics and Political Science",
                                     classes : "govuk-body-s"
                                 }
                                 ]
@@ -320,6 +469,59 @@
             <li>arts-based, vocational and professional qualifications </li>
         </ul>
         <a href="/education-and-qualifications/add-other-qualification" class="govuk-button apply-add govuk-!-margin-bottom-9">Add another qualification</a>
+    </div>
+</div>
+ <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "highest-qualification",
+            name: "highest-qualification",
+            fieldset: {
+                legend: {
+                text: "When you start teacher training, what will be your highest qualification?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+                }
+            },
+            items: [
+                 {
+                    value: "highest-uk",
+                    text: "UK",
+                    conditional : {
+                        html : highestUK
+                    }
+                },
+                {
+                    value: "highest-eu",
+                    text: "EU",
+                    conditional : {
+                        html : highestEU
+                    }
+                },
+                {
+                    value: "highest-international",
+                    text: "International",
+                    conditional : {
+                        html : highestInternational
+                    }
+                },
+                {
+                    value: "highest-international-non-eu",
+                    text: "International - non EU",
+                    conditional : {
+                        html : highestInternationalNonEU
+                    }
+                },
+                {
+                    value: "highest-scottish",
+                    text : "Scottish",
+                    conditional : {
+                        html : highestScottish
+                    }
+                }
+            ]
+            }) }}
     </div>
 </div>
 
