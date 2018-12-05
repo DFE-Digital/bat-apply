@@ -44,7 +44,16 @@
 
                     }) %}
 
-
+                     {{ govukCheckboxes({
+                        idPrefix: "no-equivalent-maths-gcse",
+                        name: "no-equivalent-maths-gcse",
+                        items: [
+                            {
+                                value: "yes",
+                                text: "I do not have this qualification yet"
+                            }
+                        ]
+                    }) }}
 
                     {{ govukInput({
                         label: {

@@ -44,7 +44,16 @@
 
                     }) %}
 
-
+                    {{ govukCheckboxes({
+                        idPrefix: "no-equivalent-english-gcse",
+                        name: "no-equivalent-english-gcse",
+                        items: [
+                            {
+                                value: "yes",
+                                text: "I do not have this qualification yet"
+                            }
+                        ]
+                    }) }}
 
                     {{ govukInput({
                         label: {

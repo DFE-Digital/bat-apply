@@ -39,6 +39,7 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <p>Add your other GCSEs, your A levels and any other type of qualification you think strengthens your application. Enter international qualifications as they appear on your certificate. You’ll be able to check your entries when you’ve finished. </p>
     <form action="/education-and-qualifications/overview" method="post" class="form">
 
                 {% call govukFieldset({
@@ -54,6 +55,15 @@
                             classes: "govuk-!-width-two-thirds",
                             id: "another-other-type-of-qualification",
                             name: "another-other-type-of-qualification"
+                            }) }}
+                    
+                    {{ govukInput({
+                        label: {
+                            text: "Subject"
+                        },
+                            classes: "govuk-!-width-two-thirds",
+                            id: "another-other-subject",
+                            name: "another-other-subject"
                             }) }}
 
                     {{ govukInput({
