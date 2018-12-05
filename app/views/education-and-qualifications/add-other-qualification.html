@@ -39,7 +39,7 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p>Add your other GCSEs, your A levels and any other type of qualification you think strengthens your application. Enter international qualifications as they appear on your certificate. You’ll be able to check your entries when you’ve finished. </p>
+    <p>Include your other GCSEs, your A levels and any other type of qualification you think strengthens your application. <br> Enter international qualifications as they appear on your certificate. <br> You’ll be able to check all your entries when you’ve finished. </p>
     <form action="/education-and-qualifications/overview" method="post" class="form">
 
                 {% call govukFieldset({
@@ -56,7 +56,7 @@
                             id: "another-other-type-of-qualification",
                             name: "another-other-type-of-qualification"
                             }) }}
-                    
+
                     {{ govukInput({
                         label: {
                             text: "Subject"
@@ -97,12 +97,12 @@
                 {% endcall %}
 
         {{ govukButton({
-            text: "Save and add another",
+            text: "Save and add another degree",
             classes: "apply-add"
             }) }}
 
         {{ govukButton({
-            text: "Save and return to your qualifications",
+            text: "Save and continue",
             href: "/education-and-qualifications/overview"
             }) }}
     </form>
