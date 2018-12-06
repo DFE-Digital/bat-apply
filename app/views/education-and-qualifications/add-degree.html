@@ -110,38 +110,6 @@
                             name: "add-another-degree-class"
                             }) }}
 
-                         {% call govukFieldset({
-                            }) %}
-
-                            {{ govukRadios({
-                                classes: "govuk-radios--inline",
-                                idPrefix: "degree-details",
-                                name: "degree-details",
-                                fieldset: {
-                                    legend: {
-                                    text: "Would you like to add details of course content to your degree?",
-                                    isPageHeading: true,
-                                    classes: "govuk-fieldset__legend--m"
-                                    }
-                                },
-                                items: [
-                                    {
-                                    value: "yes",
-                                    text: "Yes",
-                                    conditional: {
-                                        html : degreeDetails
-                                    }
-                                    },
-                                    {
-                                    value: "no",
-                                    text: "No"
-                                    }
-                                ]
-                                }) }}
-
-                        {% endcall %}
-
-
                         {{ govukDateInput({
                                 id: "degree-start-date",
                                 namePrefix: "degree-start-date",
