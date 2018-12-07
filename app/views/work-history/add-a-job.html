@@ -26,18 +26,6 @@
 
 {% block content %}
 
-{% set workGaps %}
-    <p>If you took time off work to study, or because of caring responsibilities, travel, a career break, or for personal, health or other reasons, please give us details. You should explain any gap longer than a month.</p>
-        {{ govukCharacterCount({
-            name: "work-history-gaps-detail",
-            id: "work-history-gaps-detail",
-            maxlength: 1000,
-            label: {
-                html: "<span class='govuk-visually-hidden'>line 1 of 2Explain your work history gaps</span>"
-            }
-        }) }}
-{% endset %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
@@ -55,35 +43,6 @@
         {% call govukFieldset({
             }) %}
             <p>Start with your most recent position, and work backwards. If you did more than one job in the same period, list them both, one after the other.</p>
-
-            {{ govukRadios({
-                classes: "govuk-radios",
-                idPrefix: "work-history-gaps",
-                name: "work-history-gaps",
-                fieldset: {
-                    legend: {
-                    text: "Have you got work history gaps over the last 5 years when you were a student or not in employment?",
-                    isPageHeading: false,
-                    classes: "govuk-fieldset__legend--s"
-                    }
-                },
-                items: [
-                    {
-                        value: "yes",
-                        text: "Yes",
-                        checked: checked('work-history-gaps', 'yes'),
-                        conditional : {
-                            html : workGaps
-                        }
-                    },
-                    {
-                        value: "no",
-                        text: "No",
-                        selected: true,
-                        checked: checked('work-history-gaps', 'no')
-                    }
-                ]
-            }) }}    
             <div class="job">
                 {% call govukFieldset({
                     }) %}   
