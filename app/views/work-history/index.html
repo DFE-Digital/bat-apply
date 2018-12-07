@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "/your-application"
+        },
+        {
+          text: "Work history"
+        }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+{% set workGaps %}
+    <p>If you took time off work to study, or because of caring responsibilities, travel, a career break, or for personal, health or other reasons, please give us details. You should explain any gap longer than a month.</p>
+        {{ govukCharacterCount({
+            name: "work-history-gaps-detail",
+            id: "work-history-gaps-detail",
+            maxlength: 1000,
+            label: {
+                html: "<span class='govuk-visually-hidden'>Explain your work history gaps</span>"
+            }
+        }) }}
+{% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+    <span class="govuk-caption-xl">
+        Professional skills and qualifications
+      </span>
+      Work history
+      <p>
+    </h1>
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p>Enter details of your last five years of work history. Training providers use this information to:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>safeguard children</li>
+      <li>get a more rounded sense of you as a candidate</li>
+      <li>identify areas of knowledge or expertise you could bring to teaching</li>
+    </ul>
+
+    <p>Include:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+        <li>paid, unpaid and voluntary work</li>
+        <li>regular full and part-time work</li>
+        <li>work in a school (for example as a teaching assistant)</li>
+    </ul>
+
+    <p>Don't include:</p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+        <li>short-term school experience or one-off observations – we’ll ask you about this next</li>
+    </ul>
+
+    {{ govukDetails({
+        summaryText: "I have more than 5 years of work history",
+        text: "You have the option of including your complete work history going back further than 5 years if you wish. Training providers will be interested in skills and experience you can transfer to a school setting."
+        }) }}
+
+            {{ govukRadios({
+                classes: "govuk-radios",
+                idPrefix: "work-history-gaps",
+                name: "work-history-gaps",
+                fieldset: {
+                    legend: {
+                    text: "Have you got work history gaps over the last 5 years when you were a student or not in employment?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--s"
+                    }
+                },
+                items: [
+                    {
+                        value: "yes",
+                        text: "Yes",
+                        checked: checked('work-history-gaps', 'yes'),
+                        conditional : {
+                            html : workGaps
+                        }
+                    },
+                    {
+                        value: "no",
+                        text: "No",
+                        selected: true,
+                        checked: checked('work-history-gaps', 'no')
+                    }
+                ]
+            }) }}    
+
+    {{ govukButton({
+        text: "Add a job",
+        href: "/work-history/add-a-job"
+        }) }}
+
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h3 class="govuk-heading-s">Guidance and links</h3>
+    <p><a href="guidance">Guidance to support this service </a></p>
+  </div>
+</div>
+</div>
+
+{% endblock %}

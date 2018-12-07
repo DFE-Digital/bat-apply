@@ -1,0 +1,184 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "/your-application"
+        },
+        {
+          text: "Work history",
+          href: "/work-history"
+        },
+        {
+          text: "Add a job"
+        }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+    <span class="govuk-caption-xl">
+        Work history
+      </span>
+      Add a job
+    </h1>
+
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/education-and-qualifications/overview" method="post" class="form">
+        {% call govukFieldset({
+            }) %}
+            <p>Start with your most recent position, and work backwards. If you did more than one job in the same period, list them both, one after the other.</p>
+            <div class="job">
+                {% call govukFieldset({
+                    }) %}   
+                    
+                    {{ govukInput({
+                        label: {
+                            text: "Job title"
+                        },
+                        classes: "govuk-!-width-three-quarters",
+                        id: "work-history-job-title",
+                        name: "work-history-job-title"
+                    }) }} 
+
+                    {{ govukInput({
+                        label: {
+                            text: "Name of your employer"
+                        },
+                        classes: "govuk-!-width-three-quarters",
+                        id: "work-history-name-of-employer",
+                        name: "work-history-name-of-employer"
+                    }) }}  
+
+                     {{ govukCheckboxes({
+                        idPrefix: "work-history-worked-with-children",
+                        name: "work-history-worked-with-children",
+                        items: [
+                            {
+                                value: "yes",
+                                text: "Did this job involve working in a school or with children?"
+                            }
+                        ]
+                    }) }}
+
+                    {{ govukTextarea({
+                        name: "work-history-more-detail",
+                        id: "work-history-more-detail",
+                        label: {
+                            text: "Job description"
+                        },
+                        hint: {
+                            text: "Give an overview of your role and responsibilities, highlighting skills and experience relevant to a school setting"
+                        }
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Average hours per week"
+                        },
+                        classes: "govuk-input--width-4",
+                        id: "work-history-average-hours-per-week",
+                        name: "work-history-average-hours-per-week"
+                    }) }}  
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half">
+                    {{ govukDateInput({
+                        id: "work-history-start-date",
+                        namePrefix: "work-history-start-date",
+                        fieldset: {
+                            legend: {
+                            text: "Start date",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m"
+                            }
+                        },
+                        hint: {
+                            text: "For example, 10 2013"
+                        },
+                        items: [
+                                {
+                                    name: "month",
+                                    value: data['work-history--start-date-month'],
+                                    classes: "govuk-input--width-2"
+                                },
+                                {
+                                    name: "year",
+                                    value: data['work-history-start-date-year'],
+                                    classes: "govuk-input--width-4"
+                                }
+                            ]
+                    }) }}
+                    </div>
+                    <div class="govuk-grid-column-one-half">
+                    {{ govukDateInput({
+                        id: "work-history-end-date",
+                        namePrefix: "work-history-end-date",
+                        fieldset: {
+                            legend: {
+                            text: "End date",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m"
+                            }
+                        },
+                        hint: {
+                            text: "For example, 10 2013"
+                        },
+                        items: [
+                                {
+                                    name: "month",
+                                    value: data['work-history--end-date-month'],
+                                    classes: "govuk-input--width-2"
+                                },
+                                {
+                                    name: "year",
+                                    value: data['work-history-end-date-year'],
+                                    classes: "govuk-input--width-4"
+                                }
+                            ]
+                    }) }}
+                    </div>
+                    </div>
+                   
+                   
+                      
+
+                {% endcall %} 
+            </div>
+            {{ govukButton({
+                text: "Add another job",
+                classes: "apply-add"
+            }) }}
+
+            {{ govukButton({
+                text: "Save and continue",
+                href: "/education-and-qualifications/overview"
+            }) }}
+
+        {% endcall %}
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <h3 class="govuk-heading-s">Guidance and links</h3>
+    <p><a href="guidance">Guidance to support this service </a></p>
+  </div>
+</div>
+</div>
+
+{% endblock %}
