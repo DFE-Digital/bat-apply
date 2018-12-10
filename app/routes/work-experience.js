@@ -1,13 +1,13 @@
-const workExperienceRouter = (req, res) => {
+const workHistoryRouter = (req, res) => {
     const { step } = req.params;
     const { data } =  req.session;
-    let template = "work-experience/index";
+    let template = "work-history/index";
     // 
     if (step) {
-        template = `work-experience/${ step }`
+        template = `work-history/${ step }`
     }
     //    
     res.render(template);
   };
   
-  module.exports = workExperienceRouter;
+  module.exports = workHistoryRouter;
