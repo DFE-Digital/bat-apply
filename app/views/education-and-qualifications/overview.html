@@ -32,7 +32,7 @@
             name: "highest-qualification-uk",
             fieldset: {
                 legend: {
-                text: "choose your highest qualification",
+                text: "Please select",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--s"
                 }
@@ -72,7 +72,7 @@
             name: "highest-qualification-eu",
             fieldset: {
                 legend: {
-                text: "choose your highest qualification",
+                text: "Please select",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--s"
                 }
@@ -100,7 +100,7 @@
             name: "highest-qualification-international",
             fieldset: {
                 legend: {
-                text: "choose your highest qualification",
+                text: "Please select",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--s"
                 }
@@ -124,7 +124,7 @@
             name: "highest-qualification-international-non-eu",
             fieldset: {
                 legend: {
-                text: "choose your highest qualification",
+                text: "Please select",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--s"
                 }
@@ -156,7 +156,7 @@
             name: "highest-qualification-scottish",
             fieldset: {
                 legend: {
-                text: "choose your highest qualification",
+                text: "Please select",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--s"
                 }
@@ -189,8 +189,13 @@
 </div>
   <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p>Now add the rest of your academic, vocational and professional qualifications.</p>
-        <p>You also have the option to add details of course content to your degree entry. This will help your training provider understand the range of subjects you could teach.</p>
+    <p>Now add the rest of your academic, vocational and professional qualifications, including any further degrees.</p>
+    <p>Training providers will be interested in your other GCSEs and your A levels. You can also add:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>older qualifications </li>
+        <li>international qualifications </li>
+        <li>arts-based, vocational and professional qualifications </li>
+    </ul>
         <p>If you’re still studying for maths, science or English GCSEs, or their equivalents, you can return to this section to enter your details later. </p>
   </div>
 </div>
@@ -261,7 +266,7 @@
             </div>
             <div class="apply-qualification">
                     {{ govukTable({
-                        caption: "GCSEs, A levels and equivalents",
+                        caption: "GCSEs, A levels and other qualifications",
                         captionClasses : "govuk-heading-m govuk-!-margin-bottom-0",
                         firstCellIsHeader: false,
                         head: [
@@ -460,14 +465,7 @@
 </div>
  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h3 class="govuk-heading-s">Would you like to add other qualifications?</h3>
 
-        <p>Training providers will be interested in your other GCSEs and your A levels. You can also add:</p>
-        <ul class="govuk-list govuk-list--bullet">
-            <li>older qualifications </li>
-            <li>international qualifications </li>
-            <li>arts-based, vocational and professional qualifications </li>
-        </ul>
         <a href="/education-and-qualifications/add-other-qualification" class="govuk-button apply-add govuk-!-margin-bottom-9">Add another qualification</a>
     </div>
 </div>
@@ -487,21 +485,21 @@
             items: [
                  {
                     value: "highest-uk",
-                    text: "UK",
+                    text: "UK degree",
                     conditional : {
                         html : highestUK
                     }
                 },
                 {
                     value: "highest-eu",
-                    text: "EU",
+                    text: "EU degree",
                     conditional : {
                         html : highestEU
                     }
                 },
                 {
                     value: "highest-international",
-                    text: "International",
+                    text: "International degree",
                     conditional : {
                         html : highestInternational
                     }
