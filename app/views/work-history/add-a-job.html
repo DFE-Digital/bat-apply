@@ -32,7 +32,7 @@
     <span class="govuk-caption-xl">
         Work history
       </span>
-      Add a job
+      Enter job
     </h1>
 
   </div>
@@ -45,8 +45,8 @@
             <p>Start with your most recent position, and work backwards. If you did more than one job in the same period, list them both, one after the other.</p>
             <div class="job">
                 {% call govukFieldset({
-                    }) %}   
-                    
+                    }) %}
+
                     {{ govukInput({
                         label: {
                             text: "Job title"
@@ -54,7 +54,7 @@
                         classes: "govuk-!-width-three-quarters",
                         id: "work-history-job-title",
                         name: "work-history-job-title"
-                    }) }} 
+                    }) }}
 
                     {{ govukInput({
                         label: {
@@ -63,7 +63,7 @@
                         classes: "govuk-!-width-three-quarters",
                         id: "work-history-name-of-employer",
                         name: "work-history-name-of-employer"
-                    }) }}  
+                    }) }}
 
                      {{ govukCheckboxes({
                         idPrefix: "work-history-worked-with-children",
@@ -94,7 +94,7 @@
                         classes: "govuk-input--width-4",
                         id: "work-history-average-hours-per-week",
                         name: "work-history-average-hours-per-week"
-                    }) }}  
+                    }) }}
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-one-half">
                     {{ govukDateInput({
@@ -153,11 +153,11 @@
                     }) }}
                     </div>
                     </div>
-                   
-                   
-                      
 
-                {% endcall %} 
+
+
+
+                {% endcall %}
             </div>
             {{ govukButton({
                 text: "Add another job",
