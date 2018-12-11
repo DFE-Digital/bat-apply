@@ -32,3 +32,12 @@
 .govuk-button.apply-add {
   background-color: $govuk-link-colour;
 }
+.apply-answers-table {
+  .app-check-your-answers__answer {
+    @extend .govuk-\!-font-size-16;
+  }
+  .app-check-your-answers__question,
+  .app-check-your-answers__change {
+    @extend .govuk-\!-font-size-14;
+  }
+}

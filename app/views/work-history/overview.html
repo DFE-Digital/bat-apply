@@ -1,0 +1,166 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+     {{ govukBreadcrumbs({
+        items: [
+        {
+          text: "Your application",
+          href: "/your-application"
+        },
+        {
+          text: "Work history"
+        }
+        ]
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+    <span class="govuk-caption-l">Professional skills and qualifications</span>
+      Work history
+    </h1>
+
+  </div>
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/aside-logged-in.html" %}
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  <div class="apply-answers-table">
+            <h3 class="govuk-heading-m">Work history gaps</h3>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <dl class="app-check-your-answers app-check-your-answers--short">
+                <div class="app-check-your-answers__contents">
+                    <dt class="app-check-your-answers__question">
+                        Have you got work history gaps over the last 5 years when you were a student or not in employment?
+                    </dt>
+                    <dd class="app-check-your-answers__answer">
+                        <dl class="apply-summary-list">
+                                <dt>Yes</dt>
+                                <dd>This is a story of how a Baggins had an adventure, and found himself doing and saying things altogether unexpected. &hellip; (27 words)</dd>
+                        </dl> 
+                    </dd>
+                    <dd class="app-check-your-answers__change">
+                        <a href="/work-history/amend-a-job">
+                        Change<span class="govuk-visually-hidden"> job</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        <div class="apply-answers-table">
+            <h3 class="govuk-heading-m">Your work history</h3>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <dl class="app-check-your-answers app-check-your-answers--short">
+                <div class="app-check-your-answers__contents">
+                    <dt class="app-check-your-answers__question">
+                        May 2018 to September 2018
+                    </dt>
+                    <dd class="app-check-your-answers__answer">
+                        <dl class="apply-summary-list">
+                                <dt>Job title</dt>
+                                <dd>Senior User Researcher</dd>
+                                <dt>Name of your employer</dt>
+                                <dd>Department for Education</dd>
+                                <dt>Did this job involve working in a school or with children?</dt>
+                                <dd>Yes</dd>
+                                <dt>Job description</dt>
+                                <dd>I'm driven by big ideas, brand strategy and service design &hellip; (27 words)</dd>
+                                <dt>Average hours per week</dt>
+                                <dd>8&#x00BD;</dd>
+                        </dl> 
+                    </dd>
+                    <dd class="app-check-your-answers__change">
+                        <a href="/work-history/amend-a-job">
+                        Change<span class="govuk-visually-hidden"> job</span>
+                        </a>
+                    </dd>
+                </div>
+                 <div class="app-check-your-answers__contents">
+                    <dt class="app-check-your-answers__question">
+                        October 2017 to May 2018
+                    </dt>
+                    <dd class="app-check-your-answers__answer">
+                        <dl class="apply-summary-list">
+                                <dt>Job title</dt>
+                                <dd>Senior User Researcher</dd>
+                                <dt>Name of your employer</dt>
+                                <dd>Department for Education</dd>
+                                <dt>Did this job involve working in a school or with children?</dt>
+                                <dd>Yes</dd>
+                                <dt>Job description</dt>
+                                <dd>I'm driven by big ideas, brand strategy and service design &hellip; (27 words)</dd>
+                                <dt>Average hours per week</dt>
+                                <dd>8&#x00BD;</dd>
+                        </dl> 
+                    </dd>
+                    <dd class="app-check-your-answers__change">
+                        <a href="/work-history/amend-a-job">
+                        Change<span class="govuk-visually-hidden"> job</span>
+                        </a>
+                    </dd>
+                </div>
+                 <div class="app-check-your-answers__contents">
+                    <dt class="app-check-your-answers__question">
+                        January 2017 to October 2018
+                    </dt>
+                    <dd class="app-check-your-answers__answer">
+                        <dl class="apply-summary-list">
+                                <dt>Job title</dt>
+                                <dd>Senior User Researcher</dd>
+                                <dt>Name of your employer</dt>
+                                <dd>Department for Education</dd>
+                                <dt>Did this job involve working in a school or with children?</dt>
+                                <dd>Yes</dd>
+                                <dt>Job description</dt>
+                                <dd>I'm driven by big ideas, brand strategy and service design &hellip; (27 words)</dd>
+                                <dt>Average hours per week</dt>
+                                <dd>8&#x00BD;</dd>
+                        </dl> 
+                    </dd>
+                    <dd class="app-check-your-answers__change">
+                        <a href="/work-history/amend-a-job">
+                        Change<span class="govuk-visually-hidden"> job</span>
+                        </a>
+                    </dd>
+                </div>
+                 <div class="app-check-your-answers__contents">
+                    <dt class="app-check-your-answers__question">
+                        May 2016 to January 2017
+                    </dt>
+                    <dd class="app-check-your-answers__answer">
+                        <dl class="apply-summary-list">
+                                <dt>Job title</dt>
+                                <dd>Senior User Researcher</dd>
+                                <dt>Name of your employer</dt>
+                                <dd>Department for Education</dd>
+                                <dt>Did this job involve working in a school or with children?</dt>
+                                <dd>Yes</dd>
+                                <dt>Job description</dt>
+                                <dd>I'm driven by big ideas, brand strategy and service design &hellip; (27 words)</dd>
+                                <dt>Average hours per week</dt>
+                                <dd>8&#x00BD;</dd>
+                        </dl> 
+                    </dd>
+                    <dd class="app-check-your-answers__change">
+                        <a href="/work-history/amend-a-job">
+                        Change<span class="govuk-visually-hidden"> job</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
