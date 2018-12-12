@@ -16,7 +16,7 @@
           text: "Eligibility and qualifications"
         },
         {
-          text: "Add Maths GCSE"
+          text: "Add maths GCSE"
         }
         ]
     }) }}
@@ -25,7 +25,7 @@
 
 {% block content %}
 
-    {% set alphabeticMathsGrades %}
+    {% set alphabeticmathsGrades %}
 
         {{ govukInput({
             label: {
@@ -37,7 +37,7 @@
             }) }}
     {% endset %}
 
-    {% set numericMathsGrades %}
+    {% set numericmathsGrades %}
 
         {{ govukInput({
             label: {
@@ -56,7 +56,7 @@
     <span class="govuk-caption-xl">
         Eligibility and qualifications
       </span>
-      Add Maths GCSE
+      Add maths GCSE
     </h1>
 
   </div>
@@ -120,14 +120,14 @@
                                 value: "alphabetic",
                                 text: "Grade A* to G",
                                 conditional: {
-                                    html: alphabeticMathsGrades
+                                    html: alphabeticmathsGrades
                                 }
                                 },
                                 {
                                 value: "numeric",
                                 text: "Grade 9 to 1",
                                 conditional: {
-                                    html: numericMathsGrades
+                                    html: numericmathsGrades
                                 }
                                 }
                             ]
